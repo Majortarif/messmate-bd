@@ -1,0 +1,1195 @@
+{
+  "meta": {
+    "title": "MessMate BD — every bachelor account, in one app",
+    "homeTitle": "MessMate BD — the all-in-one life platform for bachelors in Dhaka",
+    "description": "Meals, bazar, bills and wallet for your mess; housing, roommates and services; and someone in your corner on the days you live alone — built for bachelors in Dhaka."
+  },
+  "common": {
+    "optional": "optional",
+    "switchLanguage": "বাংলায় দেখুন",
+    "menu": "Menu",
+    "signIn": "Sign in",
+    "getStarted": "Get started free",
+    "backHome": "Back to home",
+    "signOut": "Sign out",
+    "prevMonth": "Previous month",
+    "nextMonth": "Next month",
+    "addPhoto": "Add a photo (camera or gallery)",
+    "removePhoto": "Remove photo"
+  },
+  "theme": {
+    "toLight": "Light mode",
+    "toDark": "Dark mode"
+  },
+  "slots": {
+    "breakfast": "Breakfast",
+    "lunch": "Lunch",
+    "dinner": "Dinner"
+  },
+  "roles": {
+    "super_admin": "Platform admin",
+    "manager": "Mess manager",
+    "member": "Mess member",
+    "landlord": "Landlord",
+    "service_provider": "Service provider"
+  },
+  "landing": {
+    "skip": "Skip to content",
+    "nav": {
+      "label": "Page sections",
+      "features": "Features",
+      "care": "Care",
+      "how": "How it works",
+      "faq": "FAQ"
+    },
+    "hero": {
+      "badge": "Built for messes, flats and sublets in Dhaka",
+      "titleLead": "Every bachelor account,",
+      "titleHighlight": "in one app.",
+      "subtitle": "Meals, bazar, bills and wallet — from finding a seat to matching a roommate — plus someone in your corner on the days you live far from family. In Bangla and English.",
+      "ctaPrimary": "Create a free account",
+      "ctaSecondary": "Have a mess code? Join",
+      "note": "Completely free · Bangla and English · Installs on your phone like an app"
+    },
+    "mock": {
+      "alt": "Sample MessMate dashboard: balance, today's meals and a care card",
+      "greeting": "Good evening, Rafi",
+      "messLine": "Neer Mess · Mirpur 10 · Room 301",
+      "balance": "Current balance",
+      "deposits": "In {amount}",
+      "spent": "Out {amount}",
+      "addMoney": "Add money",
+      "todayMeals": "Today's meals",
+      "mealRate": "Meal rate {amount}",
+      "done": "Done",
+      "ordered": "Ordered",
+      "until": "Until 9 pm",
+      "care": "Feeling unwell?",
+      "careBody": "Tell your messmates and bua in one tap",
+      "navHome": "Home",
+      "navMeals": "Meals",
+      "navWallet": "Wallet",
+      "navCare": "Care",
+      "navMore": "More"
+    },
+    "trust": {
+      "ledger": {
+        "title": "Not a taka goes missing",
+        "body": "Every transaction lives in a ledger nobody can quietly edit."
+      },
+      "isolated": {
+        "title": "Every mess is separate",
+        "body": "No other mess can see anything from yours."
+      },
+      "bangla": {
+        "title": "Bangla first",
+        "body": "The whole app in Bangla, English one tap away."
+      },
+      "manager": {
+        "title": "Less work for managers",
+        "body": "Meal rate, bill splits and month-end accounts happen on their own."
+      }
+    },
+    "features": {
+      "eyebrow": "What you get",
+      "title": "Your mess notebook, now in your pocket",
+      "subtitle": "No more counting meals in a diary, splitting bills on a calculator, or \"did you pay?\" in the group chat.",
+      "items": {
+        "meals": {
+          "title": "Meals and bazar",
+          "body": "Daily menu, switch meals on or off before cutoff, guest meals, and bazar costs with receipts."
+        },
+        "wallet": {
+          "title": "Prepaid wallet",
+          "body": "Pay by bKash, Nagad, Rocket or cash and submit the TrxID; your manager checks and approves it."
+        },
+        "bills": {
+          "title": "Bills and month-end",
+          "body": "Rent, electricity, gas, wifi, bua salary — split equally, by room or your way. A statement every month."
+        },
+        "housing": {
+          "title": "Housing and roommates",
+          "body": "Find seats, rooms, flats and sublets by area. Match with roommates who fit your habits."
+        },
+        "daily": {
+          "title": "Running the mess",
+          "body": "Complaint box, bazar duty roster, polls and a notice board — out in the open, for everyone."
+        },
+        "services": {
+          "title": "Services and marketplace",
+          "body": "Local bua, tiffin, electricians, plumbers and gas — plus buying and selling second-hand fans and tables."
+        }
+      }
+    },
+    "care": {
+      "eyebrow": "MessMate Care",
+      "title": "Living alone, but not alone",
+      "subtitle": "Living in Dhaka away from family is hard. Nobody knows when you have a fever, nobody checks when you're late home, and money runs out before the month does. This part is for those days.",
+      "items": {
+        "sick": {
+          "title": "Sick mode",
+          "body": "Tell your messmates you're unwell in one tap — and whether you need light food, medicine or a doctor."
+        },
+        "sos": {
+          "title": "SOS",
+          "body": "Send an emergency message with your location to the people you trust."
+        },
+        "checkin": {
+          "title": "Reached home",
+          "body": "Set when you expect to be home at night. Miss your check-in and your friends are alerted."
+        },
+        "mood": {
+          "title": "How are you, really",
+          "body": "A daily mood check-in, and helplines to talk to on the hard days."
+        },
+        "family": {
+          "title": "Call home",
+          "body": "A gentle nudge when it's been a while since you called home. Meetups for when you're in Dhaka over Eid or Puja."
+        },
+        "survival": {
+          "title": "Month-end survival",
+          "body": "A budget, a record of what friends owe, cheap recipes, and tuition and part-time leads."
+        }
+      },
+      "note": "Care features help you reach friends — they are not an emergency service. In danger, always call 999."
+    },
+    "how": {
+      "title": "Start in three steps",
+      "steps": {
+        "create": {
+          "title": "Create your mess",
+          "body": "The manager sets up the mess in a minute — area, address and meal rules."
+        },
+        "invite": {
+          "title": "Share the code",
+          "body": "Send the 8-character code or link on WhatsApp. Members request to join and the manager approves."
+        },
+        "relax": {
+          "title": "The app does the rest",
+          "body": "Meals, bazar, bills and wallet stay up to date; the meal rate and statements are ready at month end."
+        }
+      }
+    },
+    "faq": {
+      "title": "Common questions",
+      "items": {
+        "money": {
+          "q": "Does the app move real money?",
+          "a": "No. You still pay your manager by bKash, Nagad, Rocket or cash. In the app you only submit the record with the TrxID; once the manager checks and approves it, it shows in your wallet."
+        },
+        "privacy": {
+          "q": "Who can see my information?",
+          "a": "Only people in your mess see your name, phone and room; only you and your manager see your transactions. No other mess sees anything. Your mood and Care data are yours alone."
+        },
+        "free": {
+          "q": "How much does it cost?",
+          "a": "It's completely free. No ads and no hidden charges."
+        },
+        "install": {
+          "q": "Is there a Play Store app?",
+          "a": "You don't need one. Open it in your browser and tap \"Add to Home Screen\" — it sits on your phone like any other app."
+        },
+        "manager": {
+          "q": "How is the meal rate calculated?",
+          "a": "The manager picks one of two rules: auto (the month's bazar cost ÷ total meals, with breakfast counting as half a meal) or fixed (a set price per meal, charged when you order)."
+        }
+      }
+    },
+    "cta": {
+      "title": "Make your mess accounts painless today",
+      "body": "Create a mess, share the code, and forget the month-end arguments about who owes what.",
+      "button": "Get started free"
+    },
+    "footer": {
+      "tagline": "For bachelors in Dhaka — meals, money, housing and a little care.",
+      "label": "Footer links",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Use",
+      "signIn": "Sign in",
+      "rights": "© {year} MessMate BD. All rights reserved."
+    }
+  },
+  "auth": {
+    "aside": {
+      "title": "Living in Dhaka away from family? Hand the mess chores to us.",
+      "points": {
+        "meals": {
+          "title": "No more fights over meals and bazar",
+          "body": "Who ate how many meals and who spent what — clear for everyone to see."
+        },
+        "money": {
+          "title": "Money records you can trust",
+          "body": "Every deposit and expense is written to a ledger nobody can change later."
+        },
+        "care": {
+          "title": "Someone has your back",
+          "body": "If you fall sick or get home late, your messmates find out."
+        }
+      },
+      "footer": "The app never moves real money."
+    },
+    "google": "Continue with Google",
+    "or": "or with email",
+    "email": "Email",
+    "emailPlaceholder": "you@example.com",
+    "password": "Password",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "login": {
+      "title": "Welcome back",
+      "subtitle": "Sign in to see your mess accounts.",
+      "forgot": "Forgot password?",
+      "submit": "Sign in",
+      "noAccount": "No account yet?",
+      "signupLink": "Create one free"
+    },
+    "signup": {
+      "title": "Create your account",
+      "subtitle": "It takes a minute. Then create a mess or join one with a code.",
+      "fullName": "Full name",
+      "fullNamePlaceholder": "e.g. Rafi Ahmed",
+      "phone": "Mobile number",
+      "phoneHint": "So your messmates and manager can call you.",
+      "passwordHint": "At least 8 characters, with a letter and a number.",
+      "confirmPassword": "Repeat password",
+      "accountType": "Who are you?",
+      "types": {
+        "user": {
+          "title": "Mess member or manager",
+          "body": "I live in or run a mess, and look for housing and roommates."
+        },
+        "landlord": {
+          "title": "Landlord",
+          "body": "I rent out seats, rooms or flats."
+        },
+        "service_provider": {
+          "title": "Service provider",
+          "body": "I offer bua, tiffin, electrician, plumbing and similar services."
+        }
+      },
+      "terms": "I have read and agree to the <privacy>Privacy Policy</privacy> and <terms>Terms of Use</terms>.",
+      "submit": "Create account",
+      "haveAccount": "Already have an account?",
+      "loginLink": "Sign in",
+      "checkEmailTitle": "Check your email",
+      "checkEmailBody": "We sent a confirmation link to {email}. Click it to activate your account. Can't find it? Check your spam folder.",
+      "backToLogin": "Go to sign in"
+    },
+    "forgot": {
+      "title": "Reset your password",
+      "subtitle": "Enter your email and we'll send you a link to set a new password.",
+      "submit": "Send reset link",
+      "sentTitle": "Link sent",
+      "sentBody": "If an account exists for that email, the link will arrive in a few minutes. Open it in the same browser you requested it from.",
+      "backToLogin": "Back to sign in"
+    },
+    "reset": {
+      "title": "Set a new password",
+      "subtitle": "Choose a password you don't use anywhere else.",
+      "password": "New password",
+      "submit": "Change password",
+      "success": "Password changed"
+    }
+  },
+  "validation": {
+    "required": "Fill in this field.",
+    "email": "Enter a valid email address.",
+    "nameLength": "Name must be at least 2 characters.",
+    "messNameLength": "Mess name must be at least 3 characters.",
+    "tooLong": "That's too long.",
+    "passwordMin": "Password must be at least 8 characters.",
+    "passwordWeak": "Use at least one letter and one number.",
+    "passwordMismatch": "The passwords don't match.",
+    "phone": "Enter a valid mobile number (e.g. 01712345678).",
+    "termsRequired": "Accept the terms to continue.",
+    "inviteCode": "The code is 8 letters and numbers.",
+    "areaRequired": "Choose an area.",
+    "amountRange": "Enter a valid amount.",
+    "trxRequired": "Enter the TrxID.",
+    "trxFormat": "TrxID is 6–20 letters and numbers.",
+    "reasonRequired": "Write a reason."
+  },
+  "errors": {
+    "generic": "Something went wrong. Try again in a moment.",
+    "network": "Can't reach the internet. Check your connection and try again.",
+    "not_configured": "The server isn't set up yet (Supabase isn't configured).",
+    "invalid_credentials": "Email or password is incorrect.",
+    "email_not_confirmed": "Confirm your account with the link we emailed you first.",
+    "user_already_exists": "An account with this email already exists. Sign in instead.",
+    "weak_password": "That password is too weak. Use a longer, stronger one.",
+    "same_password": "The new password must be different from the old one.",
+    "over_email_send_rate_limit": "Too many emails were sent. Try again in a while.",
+    "over_request_rate_limit": "Too many attempts. Try again in a while.",
+    "email_address_invalid": "That email address can't be used.",
+    "signup_disabled": "New sign-ups are closed right now.",
+    "auth_link_invalid": "That link has expired or was already used. Try again.",
+    "session_expired": "Your session expired. Sign in again.",
+    "not_authenticated": "Sign in first.",
+    "not_manager": "Only the mess manager can do this.",
+    "not_member": "Only active members of this mess can do this.",
+    "not_in_mess": "You haven't joined a mess yet.",
+    "already_in_mess": "You're already in a mess or have a pending request.",
+    "invalid_invite": "No mess uses this code. Check it and try again.",
+    "invite_disabled": "This mess isn't taking new members right now. Talk to the manager.",
+    "terms_not_accepted": "Accept the Privacy Policy and Terms first.",
+    "rate_limited": "Too many tries in a short time. Try again shortly.",
+    "last_manager": "A mess needs at least one manager. Make someone else manager first.",
+    "not_pending": "This request was already decided.",
+    "not_found": "Not found.",
+    "no_pending_request": "There's no pending request.",
+    "room_full": "This room is full.",
+    "room_not_in_mess": "That room isn't in this mess.",
+    "invalid_status": "That status isn't allowed.",
+    "insufficient_balance": "Not enough money in your wallet. Add money first.",
+    "cutoff_passed": "Ordering for this meal has closed. Tell your manager.",
+    "menu_locked": "The manager has locked this menu.",
+    "too_many_guests": "That's more guests than allowed.",
+    "guests_not_allowed": "Guest meals are off in this mess.",
+    "month_closed": "This month's accounts are closed and can't be changed.",
+    "duplicate_trx_id": "This TrxID was already submitted.",
+    "trx_id_required": "Payments by bKash, Nagad or Rocket need a TrxID.",
+    "invalid_trx_id": "That TrxID looks wrong (6–20 letters and numbers).",
+    "invalid_amount": "That amount isn't valid.",
+    "already_reviewed": "This request was already reviewed.",
+    "reason_required": "Write a reason.",
+    "menu_price_locked": "Meals on this menu were already charged, so the price can't change.",
+    "menu_has_orders": "This menu has orders and can't be deleted.",
+    "menu_identity_locked": "A menu's date or meal can't change.",
+    "menu_not_found": "That menu wasn't found.",
+    "month_not_finished": "The current month isn't over yet.",
+    "month_already_closed": "This month is already closed.",
+    "bill_not_draft": "Only draft bills can be changed or posted.",
+    "bill_not_posted": "Only posted bills can be voided.",
+    "no_participants": "There's nobody (or nobody in a room) to split this month.",
+    "custom_split_required": "Enter each person's share.",
+    "custom_split_mismatch": "The shares don't add up to the bill total.",
+    "custom_split_duplicate_user": "The same member appears twice.",
+    "custom_split_not_member": "A share went to someone who wasn't a member this month.",
+    "not_reversible": "This kind of transaction can't be reversed this way.",
+    "already_reversed": "This transaction was already reversed.",
+    "invalid_type": "That type isn't allowed.",
+    "payer_not_member": "The payer isn't a member of this mess.",
+    "expense_payer_locked": "To change who paid, delete the cost and add it again.",
+    "expense_reimbursed_locked": "Already reimbursed; delete and re-add it to change the amount or month.",
+    "future_date": "Dates in the future aren't allowed.",
+    "invalid_proof_path": "The screenshot upload failed. Try again.",
+    "mode_change_blocked": "An open month has meal orders, so the meal-rate method can't change now.",
+    "upload_failed": "The photo didn't upload. Try again.",
+    "file_too_large": "That photo is too large (max 12 MB).",
+    "invalid_file": "Only photos (JPG, PNG, WebP) are allowed.",
+    "invalid_input": "Some details aren't right. Check the fields again.",
+    "duplicate": "That already exists."
+  },
+  "onboarding": {
+    "metaTitle": "Get started",
+    "title": "Welcome, {name}!",
+    "subtitle": "Join your mess or create a new one.",
+    "tabs": {
+      "join": "Join with a code",
+      "create": "Create a mess"
+    },
+    "terms": {
+      "title": "One small step left",
+      "body": "What we store and who can see it is explained in plain language on the two pages below. Read them and agree to get started.",
+      "privacyLink": "Read the Privacy Policy",
+      "termsLink": "Read the Terms of Use",
+      "accept": "I've read them and agree"
+    },
+    "create": {
+      "title": "Create your mess",
+      "body": "You'll be the manager. You can make others managers later.",
+      "success": "Mess created! Now invite your messmates.",
+      "name": "Mess name",
+      "namePlaceholder": "e.g. Neer Bachelor Mess",
+      "area": "Area",
+      "areaPlaceholder": "Choose an area",
+      "address": "Address",
+      "addressPlaceholder": "Road, block, section",
+      "building": "Building name",
+      "buildingPlaceholder": "e.g. Neer Bhaban",
+      "mealMode": "How should meals be charged?",
+      "modes": {
+        "auto": {
+          "title": "Auto meal rate",
+          "body": "At month end, total bazar cost ÷ total meals. Most messes in Dhaka work this way."
+        },
+        "fixed": {
+          "title": "Fixed price",
+          "body": "A set price per meal, taken from the wallet when you order. Good for hostels."
+        }
+      },
+      "gender": "Who can live here?",
+      "genders": {
+        "any": "Everyone",
+        "male": "Men only",
+        "female": "Women only"
+      },
+      "description": "About the mess",
+      "descriptionPlaceholder": "House rules, facilities, nearest bus stop…",
+      "submit": "Create mess"
+    },
+    "join": {
+      "title": "Join a mess",
+      "body": "Enter the 8-character code from your manager.",
+      "code": "Mess code",
+      "codeHint": "Like NEER2026 — capital letters and numbers.",
+      "check": "Find mess",
+      "members": "{count, plural, one {# member} other {# members}}",
+      "gender": {
+        "male": "Men-only mess",
+        "female": "Women-only mess"
+      },
+      "note": "A note for the manager",
+      "optional": "optional",
+      "notePlaceholder": "e.g. I'd like to move in next month, my office is in Mirpur 10.",
+      "request": "Send join request",
+      "sent": "Request sent! You'll be notified when the manager approves.",
+      "changeCode": "Use another code"
+    },
+    "pending": {
+      "title": "Waiting for approval",
+      "body": "Your request reached the manager of {mess}.",
+      "since": "Requested {time}",
+      "tip": "You'll get a notification as soon as the manager approves. If it's taking long, give them a call.",
+      "cancel": "Cancel request",
+      "cancelled": "Request cancelled"
+    }
+  },
+  "join": {
+    "metaTitle": "Join a mess",
+    "title": "You've been invited to a mess",
+    "invalid": "This link isn't valid. Ask your manager for a new one.",
+    "guestBody": "Create an account or sign in to join with this code. Then you can send your request in one tap.",
+    "signupToJoin": "Sign up and join",
+    "loginToJoin": "Sign in and join",
+    "alreadyInMess": "You're already connected to {mess}.",
+    "finishSetup": "Finish setting up your account before joining.",
+    "continue": "Continue"
+  },
+  "nav": {
+    "label": "Main menu",
+    "sections": {
+      "main": "My mess",
+      "manager": "Manager",
+      "platform": "Platform"
+    },
+    "dashboard": "Home",
+    "meals": "Meals",
+    "wallet": "Wallet",
+    "billing": "Bills",
+    "mess": "Mess",
+    "care": "Care",
+    "housing": "Housing",
+    "market": "Market",
+    "services": "Services",
+    "members": "Members",
+    "admin": "Admin",
+    "more": "More",
+    "menu": "Menu",
+    "approvals": "Approvals",
+    "expenses": "Bazar & costs",
+    "bills": "Bills",
+    "closing": "Month end",
+    "messSettings": "Mess settings"
+  },
+  "shell": {
+    "yourMess": "Your mess",
+    "hello": "Hello, {name}"
+  },
+  "notifications": {
+    "open": "Notifications ({count} new)",
+    "title": "Notifications",
+    "markAllRead": "Mark all read",
+    "empty": "All quiet",
+    "emptyBody": "New notices, approvals and reminders will show up here."
+  },
+  "userMenu": {
+    "open": "Account menu",
+    "lightMode": "Light mode",
+    "darkMode": "Dark mode",
+    "language": "বাংলায় দেখুন",
+    "install": "Install app",
+    "signOut": "Sign out"
+  },
+  "dashboard": {
+    "greeting": {
+      "morning": "Good morning, {name}",
+      "noon": "Good afternoon, {name}",
+      "afternoon": "Good afternoon, {name}",
+      "evening": "Good evening, {name}",
+      "night": "Good night, {name}"
+    },
+    "roomLine": "Room {room} · {mess}",
+    "manager": {
+      "pending": "{requests} join requests and {deposits} deposit requests are waiting for you.",
+      "review": "Review"
+    },
+    "wallet": {
+      "title": "Current balance",
+      "low": "Low balance",
+      "deposits": "Total in",
+      "spent": "Total out",
+      "usedLabel": "Share of deposits spent",
+      "estimated": "About {amount} after this month's meals",
+      "pending": "{amount} waiting for approval",
+      "addMoney": "Add money",
+      "history": "See transactions"
+    },
+    "month": {
+      "title": "{month} so far",
+      "estimate": "Estimate",
+      "final": "Final",
+      "myMeals": "My meals",
+      "mealCost": "My meal cost",
+      "mealRate": "Meal rate",
+      "messMeals": "Mess total meals",
+      "estimateHelp": "The final meal rate is set at month end from the actual bazar cost."
+    },
+    "meals": {
+      "title": "Today and tomorrow",
+      "empty": "No menu yet",
+      "emptyBody": "Menus will show up here once the manager adds them.",
+      "today": "Today",
+      "tomorrow": "Tomorrow",
+      "ordered": "Ordered",
+      "cancelled": "Cancelled",
+      "notOrdered": "Not ordered",
+      "guests": "{count, plural, one {# guest} other {# guests}}",
+      "openUntil": "Open until {time}",
+      "closed": "Ordering closed",
+      "manage": "Change meals"
+    },
+    "notices": {
+      "title": "Notice board",
+      "empty": "No new notices",
+      "pinned": "Pinned",
+      "urgent": "Urgent"
+    },
+    "chores": {
+      "title": "My duties",
+      "empty": "No duties for you in the next seven days",
+      "today": "Today"
+    },
+    "transactions": {
+      "title": "Recent transactions",
+      "empty": "No transactions yet"
+    }
+  },
+  "choreTypes": {
+    "bazar": "Bazar",
+    "cleaning": "Cleaning",
+    "cooking_help": "Cooking help",
+    "garbage": "Garbage",
+    "water_filter": "Water filter",
+    "other": "Other"
+  },
+  "ledgerTypes": {
+    "deposit": "Deposit",
+    "meal_charge": "Meal charge",
+    "meal_refund": "Meal refund",
+    "bill_share": "Bill share",
+    "reimbursement": "Reimbursement",
+    "adjustment": "Adjustment",
+    "refund_payout": "Refund paid out",
+    "reversal": "Reversal"
+  },
+  "invite": {
+    "title": "Invite your messmates",
+    "body": "Share the code or link on WhatsApp or Messenger. Anyone who wants to join needs your approval.",
+    "shareText": "Join our mess \"{mess}\" on MessMate. Code: {code}\n{link}",
+    "toggle": "Accept new join requests",
+    "on": "On",
+    "off": "Off",
+    "codeLabel": "Mess code",
+    "copyCode": "Copy code",
+    "disabledHint": "While off, nobody can send a request with this code.",
+    "share": "Share",
+    "copied": "Copied",
+    "copyLink": "Copy link",
+    "regenerate": "New code",
+    "regenerateTitle": "Create a new code?",
+    "regenerateBody": "The old code and link stop working immediately. Links you already sent can't be used to request anymore.",
+    "cancel": "Keep it",
+    "regenerated": "New code created"
+  },
+  "members": {
+    "title": "Members and invites",
+    "subtitle": "Members, join requests and the invite code for {mess}.",
+    "welcomeTitle": "Your mess is ready",
+    "welcomeBody": "Now send the code or link below to your messmates. When they request to join, you approve them right here.",
+    "requests": {
+      "title": "Join requests",
+      "empty": "No pending requests",
+      "emptyBody": "When someone requests with your code it shows up here and you get a notification.",
+      "requestedAt": "Requested {time}",
+      "approve": "Approve",
+      "reject": "Decline",
+      "approved": "{name} is now a member",
+      "rejected": "Declined {name}'s request",
+      "rejectTitle": "Decline {name}'s request?",
+      "rejectBody": "Add a reason if you like — we'll pass it on.",
+      "rejectPlaceholder": "e.g. No seats free right now",
+      "cancel": "Keep"
+    },
+    "list": {
+      "title": "Members ({count})",
+      "empty": "No members yet",
+      "you": "you",
+      "room": "Room {room}",
+      "noRoom": "No room assigned",
+      "joined": "Joined {date}",
+      "inactive": "Inactive",
+      "call": "Call {name}",
+      "balance": "Balance"
+    }
+  },
+  "legal": {
+    "backHome": "Back to home",
+    "version": "Version {version}",
+    "contents": "Contents",
+    "contact": "Questions? Write to"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "The link may be wrong, or the page has moved.",
+    "home": "Back to home"
+  },
+  "errorPage": {
+    "title": "Something went wrong",
+    "body": "Don't worry, your records are safe. Try again.",
+    "retry": "Try again",
+    "home": "Go to dashboard"
+  },
+  "meals": {
+    "title": "My meals",
+    "subtitle": "Switch any meal on or off before its cutoff, and add guests.",
+    "pickDay": "Pick a day",
+    "today": "Today",
+    "tomorrow": "Tmrw",
+    "mealsThatDay": "{count} meals that day",
+    "orderAll": "Order all",
+    "noMenu": "No menu yet",
+    "noMenuDay": "The manager hasn't set this day's menu yet.",
+    "rateAtMonthEnd": "Meal rate at month end",
+    "toggle": "{slot} on/off",
+    "locked": "Locked by manager",
+    "openUntil": "Change until {time}",
+    "closed": "Closed — ask the manager",
+    "guests": "Guests",
+    "lessGuests": "Fewer guests",
+    "moreGuests": "More guests",
+    "guestCount": "{count} guests",
+    "orderedToast": "{slot} is on",
+    "cancelledToast": "{slot} is off",
+    "balanceAfter": "Balance now {amount}",
+    "summary": {
+      "myMeals": "My meals this month",
+      "cost": "Meal cost",
+      "costEstimate": "Estimated cost",
+      "rate": "Meal rate"
+    },
+    "history": {
+      "title": "What I ate in {month}",
+      "empty": "No meals taken this month yet.",
+      "date": "Date",
+      "short": {
+        "breakfast": "B",
+        "lunch": "L",
+        "dinner": "D"
+      }
+    }
+  },
+  "wallet": {
+    "title": "Wallet",
+    "subtitle": "Deposits, spending and every transaction.",
+    "balance": "Current balance",
+    "low": "Low",
+    "deposits": "Total in",
+    "spent": "Total out",
+    "pending": "Waiting for approval",
+    "ledgerNote": "Every transaction is written permanently to the ledger.",
+    "requests": {
+      "title": "Deposit requests",
+      "empty": "No requests yet",
+      "emptyBody": "Send money and submit the TrxID — it shows up here.",
+      "status": {
+        "pending": "Checking",
+        "approved": "Added",
+        "rejected": "Declined"
+      }
+    },
+    "ledger": {
+      "title": "Transactions",
+      "csv": "Download CSV",
+      "empty": "No transactions in {month}"
+    },
+    "add": {
+      "button": "Add money",
+      "title": "Add money",
+      "subtitle": "Pay your manager, then record it here.",
+      "manualNotice": "MessMate never moves money. Once your manager matches the TrxID and approves, it's added to your wallet.",
+      "method": "How did you pay?",
+      "methods": {
+        "bkash": "bKash",
+        "nagad": "Nagad",
+        "rocket": "Rocket",
+        "cash": "Cash"
+      },
+      "sendTo": "{method} number:",
+      "copyNumber": "Copy number",
+      "askManagerNumber": "Your manager hasn't added this number yet — ask them.",
+      "amount": "Amount",
+      "trxId": "TrxID",
+      "trxHint": "The transaction ID in your payment confirmation SMS.",
+      "sender": "Sent from number",
+      "paidAt": "When you paid",
+      "note": "Note",
+      "notePlaceholder": "e.g. November advance",
+      "proof": "Screenshot",
+      "proofHint": "A payment screenshot helps your manager check it faster.",
+      "submit": "Submit",
+      "sent": "Request sent",
+      "sentBody": "You'll be notified when the manager approves."
+    }
+  },
+  "billing": {
+    "title": "Bills & statements",
+    "subtitle": "Your monthly statement, bill shares and the mess's spending — all in the open.",
+    "closedOn": "Closed on {date}",
+    "print": "Print / PDF",
+    "statement": {
+      "title": "{month} statement",
+      "opening": "Brought forward",
+      "deposits": "Deposits this month",
+      "meals": "Meals ({units} × {rate})",
+      "bills": "Bills and shared costs",
+      "other": "Other (refunds, adjustments)",
+      "closing": "Balance at month end",
+      "due": "You owe the mess this amount at month end. Settle it with your manager.",
+      "carry": "What's left carries into next month."
+    },
+    "notMember": "You weren't a member of the mess this month.",
+    "openMonth": "This month is still running. Your final statement appears here once it's closed. So far:",
+    "estimate": {
+      "myMeals": "My meals",
+      "rate": "Estimated meal rate",
+      "mealCost": "Estimated meal cost",
+      "messBazar": "Mess bazar"
+    },
+    "myBills": "My bill shares",
+    "noBills": "No bills this month yet",
+    "billStatus": {
+      "draft": "Draft",
+      "posted": "Charged",
+      "void": "Voided"
+    },
+    "ofTotal": "of {total} · {split}",
+    "split": {
+      "equal": "split equally",
+      "by_room": "by room",
+      "custom": "custom split"
+    },
+    "due": "due {date}",
+    "messBills": "{count} bills in the mess this month, {total} in total",
+    "expenses": {
+      "title": "Mess spending",
+      "empty": "No spending recorded this month yet",
+      "summary": "Total {total}, of which meals {meal}",
+      "memberPaid": "paid by a member",
+      "receipt": "View receipt"
+    }
+  },
+  "billTypes": {
+    "rent": "Rent",
+    "electricity": "Electricity",
+    "gas": "Gas",
+    "water": "Water",
+    "wifi": "Wi-Fi",
+    "bua": "Bua salary",
+    "service_charge": "Service charge",
+    "other": "Other"
+  },
+  "expenseCategories": {
+    "bazar": "Bazar",
+    "cooking_gas": "Cooking gas",
+    "utensils": "Utensils",
+    "cleaning": "Cleaning",
+    "repair": "Repair",
+    "other": "Other"
+  },
+  "roomTypes": {
+    "single": "Single",
+    "double": "Double",
+    "shared": "Shared",
+    "seat": "Seat"
+  },
+  "statementPage": {
+    "metaTitle": "Monthly statement",
+    "print": "Print or save PDF",
+    "back": "Back to bills",
+    "heading": "Monthly statement",
+    "member": "Member",
+    "phone": "Phone",
+    "room": "Room",
+    "closedOn": "Closed",
+    "notAvailable": "This month's statement isn't ready yet.",
+    "opening": "Brought forward",
+    "deposits": "Deposits",
+    "meals": "Meals ({units} × {rate})",
+    "bills": "Bills and shared costs",
+    "other": "Other",
+    "closing": "Balance at month end",
+    "messSummary": "Mess summary",
+    "messLine": "Total meals {units}, bazar {bazar}, meal rate {rate}, shared costs {shared}, {members} members.",
+    "transactions": "This month's transactions",
+    "date": "Date",
+    "type": "Type",
+    "details": "Details",
+    "amount": "Amount",
+    "footer": "Generated by MessMate BD. This is the mess's own record, not a document from a financial institution."
+  },
+  "export": {
+    "date": "Date",
+    "type": "Type",
+    "description": "Description",
+    "amount": "Amount",
+    "net": "Net total",
+    "member": "Member",
+    "phone": "Phone",
+    "opening": "Opening balance",
+    "deposits": "Deposits",
+    "mealUnits": "Meals",
+    "mealCost": "Meal cost",
+    "bills": "Bills",
+    "other": "Other",
+    "closing": "Closing balance"
+  },
+  "manage": {
+    "menu": {
+      "title": "Menu planner",
+      "subtitle": "Set the week's menu and see who's eating each meal.",
+      "prevWeek": "Previous week",
+      "nextWeek": "Next week",
+      "thisWeek": "This week",
+      "hint": "An empty box means no menu for that meal. Leave the price as it is to use the default from settings.",
+      "copyLastWeek": "Copy last week",
+      "copied": "Filled {count} empty boxes from last week",
+      "saved": "Menu saved",
+      "attendance": "{slot}: who's eating",
+      "unlock": "Unlock",
+      "lock": "Lock ordering",
+      "itemsPlaceholder": "e.g. Rice, chicken, dal",
+      "items": "{slot} items",
+      "price": "{slot} price",
+      "cutoff": "Cutoff {time}",
+      "unsaved": "{count} unsaved changes",
+      "discard": "Discard",
+      "save": "Save",
+      "attendanceTitle": "{date} · {slot}",
+      "attendanceBody": "{count} meals in total. You can change them even after the cutoff."
+    },
+    "approvals": {
+      "title": "Deposit approvals",
+      "subtitle": "Match TrxIDs and approve; record any cash you receive here.",
+      "approved": "Added {amount} for {name}",
+      "rejected": "Request declined",
+      "empty": "All caught up",
+      "emptyBody": "New deposit requests appear here and you'll get a notification.",
+      "balanceNow": "Balance now {amount}",
+      "method": "Method",
+      "copied": "Copied",
+      "copyTrx": "Copy TrxID",
+      "sender": "Sent from",
+      "paidAt": "Paid at",
+      "viewProof": "View screenshot",
+      "checkHint": "Before approving, check the TrxID and amount against your own bKash / Nagad / Rocket messages.",
+      "approve": "Approve",
+      "reject": "Decline",
+      "rejectTitle": "Decline this request?",
+      "rejectBody": "If you add a reason, the member will see it.",
+      "rejectPlaceholder": "e.g. No payment arrived with this TrxID",
+      "left": "left the mess",
+      "pendingTitle": "Waiting ({count})",
+      "reviewedTitle": "Recently reviewed",
+      "reviewedEmpty": "Nothing reviewed yet",
+      "cash": "Cash",
+      "status": {
+        "pending": "Waiting",
+        "approved": "Approved",
+        "rejected": "Declined"
+      },
+      "manual": {
+        "button": "Cash / adjustment",
+        "title": "Record a manual entry",
+        "subtitle": "Cash in hand, a correction, or money paid back.",
+        "member": "Member",
+        "memberPlaceholder": "Choose a member",
+        "type": "Type",
+        "types": {
+          "deposit": {
+            "title": "Cash deposit",
+            "body": "The member paid you in cash."
+          },
+          "adjustment": {
+            "title": "Adjustment",
+            "body": "Add or subtract to fix a mistake. A reason is required."
+          },
+          "refund_payout": {
+            "title": "Refund paid out",
+            "body": "You paid the member's remaining money back (e.g. when leaving)."
+          }
+        },
+        "direction": {
+          "credit": "Add (+)",
+          "debit": "Subtract (−)"
+        },
+        "amount": "Amount",
+        "note": "Note / reason",
+        "notePlaceholder": "e.g. Fixing October's wrong bill",
+        "submit": "Record",
+        "done": "Added to the ledger"
+      },
+      "recent": {
+        "heading": "Recent transactions",
+        "hint": "Fix a wrong deposit or adjustment with an opposite entry — nothing can be deleted.",
+        "reverse": "Reverse",
+        "title": "Reverse this transaction?",
+        "body": "An equal and opposite entry will be added to the ledger. Give a reason.",
+        "placeholder": "e.g. Recorded under the wrong member",
+        "done": "Transaction reversed"
+      }
+    },
+    "expenses": {
+      "title": "Bazar & costs",
+      "subtitle": "Record bazar, gas and other mess costs with receipts.",
+      "total": "Total spent",
+      "mealTotal": "Meal costs (bazar + gas)",
+      "sharedTotal": "Shared costs",
+      "closed": "This month is closed; costs can't change anymore.",
+      "add": "Add cost",
+      "empty": "No costs this month yet.",
+      "edit": "Edit",
+      "delete": "Delete",
+      "deleteTitle": "Delete this cost?",
+      "deleteBody": "The meal rate will be recalculated.",
+      "deleteReimbursed": "The reimbursement paid to the member will be reversed too.",
+      "cancel": "Keep",
+      "deleted": "Cost deleted",
+      "paidByName": "paid by {name}",
+      "receipt": "Receipt",
+      "addTitle": "New cost",
+      "editTitle": "Edit cost",
+      "dialogBody": "Bazar and cooking gas feed the meal rate; other costs are split equally among everyone at month end.",
+      "category": "Category",
+      "amount": "Amount",
+      "date": "Date",
+      "description": "Description",
+      "descriptionPlaceholder": "e.g. Rice 25 kg, chicken 4 kg",
+      "paidFrom": "Whose money?",
+      "payer": {
+        "mess_fund": {
+          "title": "Mess fund",
+          "body": "Paid from collected money."
+        },
+        "member": {
+          "title": "A member's pocket",
+          "body": "A member paid — it's credited back to their wallet."
+        }
+      },
+      "paidBy": "Paid by",
+      "paidByPlaceholder": "Choose a member",
+      "reimbursedLocked": "Already reimbursed, so the amount and date can't change.",
+      "receiptHint": "Add a receipt photo so everyone can see it — keeps things transparent.",
+      "receiptReplace": "A new photo replaces the old one.",
+      "save": "Save",
+      "updated": "Cost updated",
+      "added": "Cost added"
+    },
+    "bills": {
+      "title": "Bills",
+      "subtitle": "Rent, electricity, Wi-Fi, bua salary — create bills and split them between members.",
+      "closed": "This month is closed; no new bills.",
+      "add": "New bill",
+      "addTitle": "New bill",
+      "addBody": "It starts as a draft; posting it charges everyone's share.",
+      "type": "Bill type",
+      "split": "How to split",
+      "splits": {
+        "equal": {
+          "title": "Split equally",
+          "body": "Equal shares for everyone in the mess this month."
+        },
+        "by_room": {
+          "title": "By room",
+          "body": "Each room's rent split among its occupants. Currently {total} in total."
+        },
+        "custom": {
+          "title": "Custom split",
+          "body": "You set each person's share."
+        }
+      },
+      "amount": "Total amount",
+      "dueDate": "Due date",
+      "description": "Description",
+      "descriptionPlaceholder": "e.g. Prepaid meter recharge",
+      "create": "Create draft",
+      "created": "Draft bill created",
+      "empty": "No bills this month yet.",
+      "status": {
+        "draft": "Draft",
+        "posted": "Posted",
+        "void": "Voided"
+      },
+      "due": "due {date}",
+      "splitAndPost": "Set shares and post",
+      "postTo": "Post to {count} members",
+      "delete": "Delete",
+      "shares": "{count} shares",
+      "void": "Void",
+      "posted": "Bill posted; everyone's been notified",
+      "deleted": "Draft deleted",
+      "voided": "Bill voided and refunded",
+      "customTitle": "Custom split",
+      "customBody": "Enter each share; they must add up to {total}.",
+      "splitEqually": "Fill equal shares",
+      "customSum": "Total {sum} / {total}",
+      "post": "Post",
+      "voidTitle": "Void this bill?",
+      "voidBody": "Everyone's charge is refunded. Give a reason.",
+      "voidPlaceholder": "e.g. Wrong amount entered"
+    },
+    "closing": {
+      "title": "Month end",
+      "subtitle": "Closing a month sets the meal rate, creates everyone's statement and locks the month.",
+      "readyTitle": "Time to close {month}",
+      "autoNote": "Auto-close is on: it closes itself on day {day} of the new month. You can close it now if you're ready.",
+      "manualNote": "Auto-close is off, so you need to close it yourself.",
+      "preview": {
+        "units": "Total meals",
+        "bazar": "Bazar + gas",
+        "rate": "Meal rate",
+        "rateInfo": "Meal rate (info)",
+        "shared": "Shared costs"
+      },
+      "draftWarning": "{count} draft bills for this month aren't posted yet. After closing they can't be posted.",
+      "effects": {
+        "meal": "In auto mode, everyone is charged their meals × the meal rate.",
+        "shared": "Costs other than bazar and gas are split equally (if enabled in settings).",
+        "lock": "After that, the month's menus, meals, costs and bills can't change."
+      },
+      "history": "Closed months",
+      "historyEmpty": "No months closed yet",
+      "table": {
+        "month": "Month",
+        "units": "Meals",
+        "bazar": "Bazar",
+        "rate": "Rate",
+        "deposits": "Deposits",
+        "member": "Member",
+        "mealCost": "Meal cost",
+        "bills": "Bills",
+        "closing": "Closing"
+      },
+      "csv": "Statements CSV",
+      "latestStatements": "{month} statements",
+      "close": "Close {month}",
+      "confirmTitle": "Close {month}?",
+      "confirmBody": "This can't be undone. Everyone's statement is created and members are notified.",
+      "cancel": "Not yet",
+      "confirm": "Yes, close it",
+      "closed": "{month} is closed"
+    },
+    "settings": {
+      "title": "Mess settings",
+      "subtitle": "Payment numbers, meal rules and mess details.",
+      "saved": "Saved",
+      "info": {
+        "title": "Mess details",
+        "body": "What members and the invite page show.",
+        "save": "Save details"
+      },
+      "meals": {
+        "title": "Meal rules",
+        "body": "Prices, cutoffs, guests and month-end rules.",
+        "mode": "Meal rate method",
+        "modeLocked": "An open month already has meal orders, so the method can't change now. Change it after closing the month, before new orders.",
+        "slot": "Meal",
+        "price": "Price (৳)",
+        "weight": "Meal units",
+        "cutoff": "Cutoff",
+        "prevDay": "Day before",
+        "weightHint": "Meal units: how many meals one serving counts as in the auto rate. Breakfast is usually 0.5.",
+        "guests": "Guest meals",
+        "guestsHint": "Members can add guest meals to their own.",
+        "maxGuests": "Max guests per meal",
+        "creditLimit": "Credit allowed (fixed mode)",
+        "creditHint": "0 means no ordering without balance.",
+        "lowBalance": "Low-balance alert (৳)",
+        "lowBalanceHint": "Members are notified when they drop below this.",
+        "splitShared": "Split shared costs",
+        "splitSharedHint": "At month end, costs other than bazar and gas are split equally.",
+        "autoClose": "Auto month-end",
+        "autoCloseHint": "Last month closes itself on a set day of the new month.",
+        "autoCloseDay": "Auto-close on day",
+        "save": "Save rules"
+      },
+      "payment": {
+        "title": "Where to send money",
+        "body": "Members see these numbers when they add money.",
+        "bkash": "bKash number",
+        "nagad": "Nagad number",
+        "rocket": "Rocket number",
+        "note": "Instructions",
+        "noteHint": "e.g. which option to use.",
+        "notePlaceholder": "Use Send Money and put your room number as reference",
+        "save": "Save numbers"
+      }
+    },
+    "memberActions": {
+      "open": "Options for {name}",
+      "room": "Set room",
+      "makeManager": "Make manager",
+      "madeManager": "{name} is now a manager",
+      "removeManager": "Remove as manager",
+      "stepDown": "Step down as manager",
+      "removedManager": "{name} is now a member",
+      "pause": "Pause membership",
+      "pausedDone": "{name} is paused (can't order meals)",
+      "resume": "Reactivate",
+      "resumedDone": "{name} is active again",
+      "remove": "Remove from mess",
+      "roomTitle": "{name}'s room",
+      "noRoom": "No room",
+      "free": "{count} seats free",
+      "seatPlaceholder": "Seat / bed (optional)",
+      "seat": "Seat",
+      "save": "Save",
+      "roomSaved": "Room updated",
+      "removeTitle": "Remove {name} from the mess?",
+      "removeBody": "They won't see the mess anymore. Their money records stay in the ledger — settle any balance with cash or an adjustment.",
+      "cancel": "Keep",
+      "removedDone": "{name} was removed"
+    },
+    "rooms": {
+      "title": "Rooms",
+      "add": "Add room",
+      "empty": "No rooms yet",
+      "emptyBody": "Add rooms to assign members and split rent by room.",
+      "occupancy": "{used}/{capacity} people",
+      "edit": "Edit",
+      "delete": "Delete",
+      "deleted": "Room deleted",
+      "saved": "Room saved",
+      "editTitle": "Edit room",
+      "addTitle": "New room",
+      "label": "Room number/name",
+      "type": "Type",
+      "building": "Building",
+      "flat": "Flat",
+      "capacity": "Capacity",
+      "rent": "Monthly rent (৳)",
+      "rentHint": "Used when splitting rent by room.",
+      "save": "Save"
+    }
+  }
+}

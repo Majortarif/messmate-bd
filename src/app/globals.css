@@ -1,0 +1,242 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/* Dark is the default theme; light is applied with <html class="light">. */
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-hind), "Noto Sans Bengali", system-ui, sans-serif;
+  --font-heading: var(--font-hind), "Noto Sans Bengali", system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  /* MessMate semantic colours */
+  --color-mint: var(--mint);
+  --color-mint-soft: var(--mint-soft);
+  --color-marigold: var(--marigold);
+  --color-marigold-soft: var(--marigold-soft);
+  --color-coral: var(--coral);
+  --color-coral-soft: var(--coral-soft);
+  --color-sky: var(--sky);
+  --color-sky-soft: var(--sky-soft);
+  --color-surface: var(--surface);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+  --animate-fade-up: fade-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+}
+
+/* ---------------------------------------------------------------- light --- */
+/* html.light outranks :root, so it wins over the dark defaults below. */
+html.light {
+  --background: #f5f7fa;
+  --foreground: #0f1722;
+  --card: #ffffff;
+  --card-foreground: #0f1722;
+  --popover: #ffffff;
+  --popover-foreground: #0f1722;
+  --surface: #eef2f6;
+  --primary: #14b88f;
+  --primary-foreground: #03211a;
+  --secondary: #e9eef3;
+  --secondary-foreground: #0f1722;
+  --muted: #edf1f5;
+  --muted-foreground: #556172;
+  --accent: #e6ecf2;
+  --accent-foreground: #0f1722;
+  --destructive: #d94a3d;
+  --border: #e1e7ee;
+  --input: #d3dbe4;
+  --ring: #14b88f;
+  --mint: #0e9f7b;
+  --mint-soft: #dcf6ee;
+  --marigold: #b9740a;
+  --marigold-soft: #fdf0d9;
+  --coral: #d94a3d;
+  --coral-soft: #fde6e3;
+  --sky: #2b78d6;
+  --sky-soft: #e0edfc;
+  --chart-1: #14b88f;
+  --chart-2: #e8950f;
+  --chart-3: #3b8be8;
+  --chart-4: #e5594c;
+  --chart-5: #8b6ee8;
+  --radius: 0.875rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0f1722;
+  --sidebar-primary: #14b88f;
+  --sidebar-primary-foreground: #03211a;
+  --sidebar-accent: #edf3f1;
+  --sidebar-accent-foreground: #0f1722;
+  --sidebar-border: #e1e7ee;
+  --sidebar-ring: #14b88f;
+  color-scheme: light;
+}
+
+/* ----------------------------------------------------------------- dark --- */
+:root,
+.dark {
+  --background: #0b0f14;
+  --foreground: #e8edf3;
+  --card: #131a23;
+  --card-foreground: #e8edf3;
+  --popover: #161e28;
+  --popover-foreground: #e8edf3;
+  --surface: #0f151c;
+  --primary: #2dd4a7;
+  --primary-foreground: #04201a;
+  --secondary: #1b2430;
+  --secondary-foreground: #e8edf3;
+  --muted: #1a222d;
+  --muted-foreground: #8b97a8;
+  --accent: #1d2733;
+  --accent-foreground: #e8edf3;
+  --destructive: #f2665a;
+  --border: rgb(255 255 255 / 0.08);
+  --input: rgb(255 255 255 / 0.12);
+  --ring: #2dd4a7;
+  --mint: #2dd4a7;
+  --mint-soft: rgb(45 212 167 / 0.12);
+  --marigold: #f5a524;
+  --marigold-soft: rgb(245 165 36 / 0.12);
+  --coral: #f2665a;
+  --coral-soft: rgb(242 102 90 / 0.12);
+  --sky: #60a5fa;
+  --sky-soft: rgb(96 165 250 / 0.12);
+  --chart-1: #2dd4a7;
+  --chart-2: #f5a524;
+  --chart-3: #60a5fa;
+  --chart-4: #f2665a;
+  --chart-5: #a78bfa;
+  --radius: 0.875rem;
+  --sidebar: #0e131a;
+  --sidebar-foreground: #e8edf3;
+  --sidebar-primary: #2dd4a7;
+  --sidebar-primary-foreground: #04201a;
+  --sidebar-accent: rgb(45 212 167 / 0.1);
+  --sidebar-accent-foreground: #e8edf3;
+  --sidebar-border: rgb(255 255 255 / 0.06);
+  --sidebar-ring: #2dd4a7;
+  color-scheme: dark;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-background text-foreground leading-relaxed antialiased;
+    font-feature-settings: "kern";
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  h1, h2, h3, h4 {
+    @apply font-heading tracking-tight;
+  }
+  ::selection {
+    background: color-mix(in srgb, var(--primary) 35%, transparent);
+  }
+}
+
+@layer components {
+  /* Soft brand glow used behind hero sections and key cards. */
+  .glow-mint {
+    background-image:
+      radial-gradient(60rem 30rem at 15% -10%, color-mix(in srgb, var(--mint) 16%, transparent), transparent 60%),
+      radial-gradient(40rem 24rem at 95% 10%, color-mix(in srgb, var(--sky) 10%, transparent), transparent 60%);
+  }
+  .bg-dots {
+    background-image: radial-gradient(color-mix(in srgb, var(--foreground) 9%, transparent) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+  .card-hover {
+    @apply transition-[transform,border-color,background-color] duration-200 hover:-translate-y-0.5 hover:border-primary/30;
+  }
+  .num {
+    font-variant-numeric: tabular-nums;
+  }
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Statements print on white paper whatever theme is on screen. */
+@media print {
+  :root,
+  .dark,
+  html.light {
+    --background: #ffffff;
+    --foreground: #111111;
+    --card: #ffffff;
+    --card-foreground: #111111;
+    --muted: #f2f4f6;
+    --muted-foreground: #4a5260;
+    --border: #d4d9df;
+    --mint: #0a7d61;
+    --coral: #b3392e;
+  }
+  @page {
+    margin: 14mm;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
