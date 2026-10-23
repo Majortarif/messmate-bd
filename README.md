@@ -16,8 +16,9 @@
 ![PWA](https://img.shields.io/badge/PWA-installable-5A0FC8?logo=pwa&logoColor=white)
 ![Bangla first](https://img.shields.io/badge/i18n-বাংলা%20%2B%20English-2DD4A7)
 
+**[🚀 Live app — messmate-bd.netlify.app](https://messmate-bd.netlify.app)**
+
 [Deployment guide](docs/DEPLOYMENT.md) · [Testing](docs/TESTING.md) · [Security review](docs/SECURITY-REVIEW.md) · [Database docs](supabase/README.md) · [Report a bug](https://github.com/Majortarif/messmate-bd/issues)
-<!-- After deploying, add: · [Live app](https://your-domain) -->
 
 <img src="docs/screenshots/landing-en.png" alt="MessMate BD landing page" width="900" />
 
