@@ -42,7 +42,10 @@ recommended) and Git. A domain name is optional.
    the closest to Dhaka.
 3. Generate a strong database password and keep it in a password manager. The app
    never needs it, but you will need it for backups or a future migration tool.
-4. Wait about two minutes for the project to start.
+4. Leave **Enable Data API** on (the app talks to the database through it). The
+   **Automatically expose new tables** checkbox can stay as it is: `setup.sql` grants
+   table access explicitly, and Row Level Security protects every table either way.
+5. Wait about two minutes for the project to start.
 
 ### 1.2 Run the database SQL
 

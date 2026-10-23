@@ -19,10 +19,11 @@ create schema cron;
 
 grant usage on schema public, extensions, auth, storage to anon, authenticated, service_role;
 
--- Supabase default privileges for objects created by postgres in public.
-alter default privileges in schema public grant all on tables to anon, authenticated, service_role;
-alter default privileges in schema public grant all on sequences to anon, authenticated, service_role;
-alter default privileges in schema public grant all on functions to anon, authenticated, service_role;
+-- Supabase projects created since May 2026 ("Automatically expose new tables"
+-- unchecked, now the default) give the API roles NO privileges on new tables and
+-- sequences in public. The migrations must grant everything explicitly, so the
+-- shim models that, and is stricter still for functions (no PUBLIC execute).
+alter default privileges in schema public revoke execute on functions from public;
 
 -- ---------------------------------------------------------------- auth -------
 create table auth.users (

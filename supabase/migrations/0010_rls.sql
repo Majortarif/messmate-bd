@@ -385,6 +385,13 @@ create policy "job_posts: poster or admin deletes" on public.job_posts
 -- =============================================================================
 -- Grants (defence in depth on top of RLS)
 -- =============================================================================
+-- Supabase projects created since May 2026 no longer grant the API roles access to
+-- new tables ("Automatically expose new tables" is off by default). Grant it here
+-- explicitly so setup works on any project; RLS still decides which rows a user
+-- sees, and 0020 takes writes away again on tables that only RPCs may change.
+grant select, insert, update, delete on all tables in schema public to authenticated, service_role;
+grant usage, select on all sequences in schema public to authenticated, service_role;
+
 -- Visitors who are not signed in may only read the public reference tables.
 revoke all on all tables in schema public from anon;
 grant select on public.areas, public.emergency_places to anon;
