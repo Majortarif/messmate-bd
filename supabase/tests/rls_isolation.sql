@@ -210,9 +210,11 @@ select tests.check(not tests.local_storage() or (select count(*) from storage.ob
                    'A2 sees own deposit proof');
 
 select tests.throws(format($q$insert into public.ledger_entries (mess_id, user_id, entry_type, amount) values (%L, %L, 'deposit', 100000)$q$,
-                           tests.id('messA'), tests.id('A2')), 'row-level security', 'member cannot write own ledger');
-update public.ledger_entries set amount = 999999 where user_id = tests.id('A2');
-delete from public.ledger_entries where user_id = tests.id('A2');
+                           tests.id('messA'), tests.id('A2')), 'permission denied', 'member cannot write own ledger (no grant, no policy)');
+select tests.throws(format('update public.ledger_entries set amount = 999999 where user_id = %L', tests.id('A2')),
+                    'permission denied', 'member cannot update the ledger');
+select tests.throws(format('delete from public.ledger_entries where user_id = %L', tests.id('A2')),
+                    'permission denied', 'member cannot delete from the ledger');
 select tests.check((select sum(amount) from public.ledger_entries where user_id = tests.id('A2')) = 1000,
                    'member update/delete on ledger changes nothing');
 select tests.throws(format('select public.review_deposit(%L, true)', tests.id('depA2')), 'not_manager', 'member cannot approve own deposit');
@@ -356,6 +358,32 @@ select tests.check((select count(*) from pg_proc p join pg_namespace n on n.oid 
                    'every SECURITY DEFINER function pins search_path');
 select tests.check(not has_table_privilege('anon', 'public.profiles', 'select'), 'anon has no SELECT grant on profiles');
 select tests.check(not has_table_privilege('authenticated', 'public.ledger_entries', 'truncate'), 'nobody can TRUNCATE the ledger');
+select tests.check((
+  with cmds (cmd, priv) as (values ('INSERT', 'insert'), ('UPDATE', 'update'), ('DELETE', 'delete'))
+  select count(*)
+  from pg_class c
+  join pg_namespace n on n.oid = c.relnamespace
+  cross join cmds
+  where n.nspname = 'public' and c.relkind = 'r'
+    and has_table_privilege('authenticated', c.oid, cmds.priv)
+    and not exists (select 1 from pg_policies p
+                    where p.schemaname = 'public' and p.tablename = c.relname
+                      and p.cmd in (cmds.cmd, 'ALL') and p.permissive = 'PERMISSIVE'
+                      and p.roles && array['authenticated', 'public']::name[])) = 0,
+  'no table keeps a write grant that no policy uses (RPC-only tables are locked twice)');
+select tests.check((select count(*) from pg_class c join pg_namespace n on n.oid = c.relnamespace
+                    cross join unnest(array['insert', 'update', 'delete']) p(priv)
+                    where n.nspname = 'public' and c.relkind = 'r' and has_table_privilege('anon', c.oid, p.priv)) = 0,
+                   'signed-out visitors cannot write any table');
+select tests.check((select array_agg(p.proname::text) from pg_proc p join pg_namespace n on n.oid = p.pronamespace
+                    where n.nspname = 'public' and has_function_privilege('anon', p.oid, 'execute')) = array['submit_feedback'],
+                   'the contact form is the only RPC open to signed-out visitors');
+select tests.check((select count(*) from pg_class c join pg_namespace n on n.oid = c.relnamespace
+                    where n.nspname = 'public' and c.relkind = 'v'
+                      and not coalesce('security_invoker=true' = any (c.reloptions), false)) = 0,
+                   'every public view runs with the caller''s rights (RLS applies)');
+select tests.check(to_regprocedure('public.get_public_profiles(uuid[])') is null,
+                   'no RPC hands out full names by user id');
 
 -- ------------------------------------------------------------- clean up ----
 select private.purge_data(

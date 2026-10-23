@@ -1,0 +1,22 @@
+version: 2
+updates:
+  # App dependencies: patch and minor updates grouped into one weekly PR.
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      minor-and-patch:
+        update-types: [minor, patch]
+
+  # In-memory Postgres used by the database tests.
+  - package-ecosystem: npm
+    directory: /supabase/tests/pglite
+    schedule:
+      interval: monthly
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly

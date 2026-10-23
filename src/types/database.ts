@@ -3358,16 +3358,6 @@ export type Database = {
         Args: never
         Returns: Json
       }
-      get_public_profiles: {
-        Args: {
-          p_ids: string[]
-        }
-        Returns: {
-          id: string
-          full_name: string
-          avatar_url: string
-        }[]
-      }
       get_wallet_summary: {
         Args: {
           p_user_id?: string

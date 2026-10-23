@@ -16,7 +16,7 @@
 ![PWA](https://img.shields.io/badge/PWA-installable-5A0FC8?logo=pwa&logoColor=white)
 ![Bangla first](https://img.shields.io/badge/i18n-বাংলা%20%2B%20English-2DD4A7)
 
-[Deployment guide](docs/DEPLOYMENT.md) · [Database docs](supabase/README.md) · [Report a bug](https://github.com/Majortarif/messmate-bd/issues)
+[Deployment guide](docs/DEPLOYMENT.md) · [Testing](docs/TESTING.md) · [Security review](docs/SECURITY-REVIEW.md) · [Database docs](supabase/README.md) · [Report a bug](https://github.com/Majortarif/messmate-bd/issues)
 <!-- After deploying, add: · [Live app](https://your-domain) -->
 
 <img src="docs/screenshots/landing-en.png" alt="MessMate BD landing page" width="900" />
@@ -128,7 +128,7 @@ sequenceDiagram
 ## Engineering highlights
 
 - **Tenant isolation in the database.** Every mess-scoped table has Row Level Security
-  bound to the caller's membership. **125 isolation checks** prove that one mess cannot
+  bound to the caller's membership. **132 isolation checks** prove that one mess cannot
   read or write another's data. Another **147 functional checks** cover meal cutoffs,
   ledger rules, month closing and splits. All of them run in CI against the real
   migrations in an in-memory Postgres ([PGlite](https://pglite.dev)).
@@ -138,8 +138,10 @@ sequenceDiagram
   caller's role.
 - **Defence in depth.** Zod on the client, again in server actions, and constraints in
   Postgres. Rate limits live in Postgres for deposits, joins, alerts, listings and
-  feedback. Security headers, private storage buckets with signed URLs, and the service
-  key confined to one server-only module.
+  feedback. RPC-only tables have no write grants at all. A production
+  Content-Security-Policy and HSTS are set, storage buckets are private with signed
+  URLs, and the service key is confined to one server-only module. See the
+  [security review](docs/SECURITY-REVIEW.md).
 - **Bangla first, for real.** Bangla URLs have no prefix and English lives under `/en`.
   2,540 translated messages are checked for parity in CI. Numbers, dates and taka amounts
   render in Bangla digits, with Hind Siliguri for typography.
@@ -169,7 +171,7 @@ sequenceDiagram
 ```text
 messmate-bd/
 ├── .github/workflows/ci.yml   lint · types · build · SQL tests
-├── docs/                      DEPLOYMENT.md, screenshots
+├── docs/                      deployment, testing, security review, next steps, screenshots
 ├── messages/                  bn.json · en.json
 ├── public/                    PWA icons, sw.js, offline.html
 ├── scripts/                   message parity check, icon generator
@@ -186,7 +188,7 @@ messmate-bd/
 │   ├── types/                 database.ts (generated) · app.ts
 │   └── proxy.ts               session refresh + locale routing + route guard
 ├── supabase/
-│   ├── migrations/            0001 – 0019
+│   ├── migrations/            0001 – 0020
 │   ├── email-templates/       confirm signup · reset password
 │   ├── setup.sql              generated one-paste bundle
 │   ├── seed.sql · remove_demo.sql
@@ -221,7 +223,7 @@ npm run db:test
 | `npm run dev` | development server |
 | `npm run build` · `npm start` | production build / server |
 | `npm run check` | ESLint + TypeScript + Bangla/English message parity |
-| `npm run db:test` | all migrations + seed + 272 SQL checks in PGlite |
+| `npm run db:test` | all migrations + seed + 279 SQL checks in PGlite |
 | `npm run db:types` | regenerate `src/types/database.ts` |
 
 ## Honest notes
@@ -236,10 +238,12 @@ npm run db:test
 
 ## Roadmap
 
-- [ ] Web push and SMS reminders (meal cutoff, low balance, rent)
-- [ ] bKash / Nagad payment API for automatic deposit confirmation
-- [ ] Verified landlords for housing listings
-- [ ] Offline meal ordering with background sync
+- [ ] Web push notifications (deposit approved, meal cutoff, rent, SOS)
+- [ ] SMS to family for SOS and missed check-ins
+- [ ] bKash / Nagad payments through a merchant account or aggregator
+- [ ] Play Store app (Trusted Web Activity), receipt OCR, meal-rate forecast
+
+Designs, costs and traps for each: [docs/NEXT-STEPS.md](docs/NEXT-STEPS.md).
 
 ## Author
 

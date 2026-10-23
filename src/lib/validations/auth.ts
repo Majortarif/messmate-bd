@@ -49,8 +49,21 @@ export type SignUpInput = z.input<typeof signUpSchema>;
 export type ForgotPasswordInput = z.infer<typeof forgotPasswordSchema>;
 export type ResetPasswordInput = z.infer<typeof resetPasswordSchema>;
 
-/** Only allow same-site relative redirects (blocks //evil.com and absolute URLs). */
+const SAME_SITE = "https://messmate.invalid";
+
+/**
+ * Only allow same-site relative redirects. Parsing (instead of prefix checks) also
+ * catches tricks browsers normalise into another host, such as "/\t/evil.com",
+ * "/\\evil.com" and "//evil.com".
+ */
 export function safeNext(next: string | null | undefined, fallback = "/dashboard") {
-  if (!next || !next.startsWith("/") || next.startsWith("//") || next.startsWith("/\\")) return fallback;
-  return next;
+  if (!next || !next.startsWith("/")) return fallback;
+  try {
+    const url = new URL(next, SAME_SITE);
+    // "/..//evil.com" normalises to the path "//evil.com", which is another host again.
+    if (url.origin !== SAME_SITE || url.pathname.startsWith("//")) return fallback;
+    return `${url.pathname}${url.search}${url.hash}`;
+  } catch {
+    return fallback;
+  }
 }

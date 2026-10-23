@@ -1,7 +1,14 @@
+/**
+ * Text a spreadsheet would run as a formula (=, +, -, @, tab, CR at the start) gets a
+ * leading apostrophe, so a member named "=HYPERLINK(…)" can't run code in the
+ * manager's Excel. Plain numbers such as "-250.00" are left alone.
+ */
+const neutralise = (s: string) => (/^[=+\-@\t\r]/.test(s) && !/^[+-]?\d+(\.\d+)?$/.test(s) ? `'${s}` : s);
+
 /** RFC 4180 CSV with a UTF-8 BOM so Excel shows Bangla correctly. */
 export function toCsv(rows: (string | number | null | undefined)[][]) {
   const cell = (v: string | number | null | undefined) => {
-    const s = v === null || v === undefined ? "" : String(v);
+    const s = v === null || v === undefined ? "" : typeof v === "number" ? String(v) : neutralise(v);
     return /[",\r\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
   };
   return "﻿" + rows.map((r) => r.map(cell).join(",")).join("\r\n");

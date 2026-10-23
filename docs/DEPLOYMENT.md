@@ -51,17 +51,17 @@ these in order:
 
 | # | File | Notes |
 |---|---|---|
-| 1 | [`supabase/setup.sql`](../supabase/setup.sql) | the whole schema, RLS, functions, storage buckets, Realtime and reference data in one paste (migrations 0001–0019 except 0013) |
+| 1 | [`supabase/setup.sql`](../supabase/setup.sql) | the whole schema, RLS, functions, storage buckets, Realtime and reference data in one paste (migrations 0001–0020 except 0013) |
 | 2 | — | **Database → Extensions** → enable **pg_cron** |
 | 3 | [`supabase/migrations/0013_cron.sql`](../supabase/migrations/0013_cron.sql) | schedules the 5-minute and daily jobs (check-ins, reminders, month auto-close, rent reminders, cleanup) |
 | 4 | [`supabase/seed.sql`](../supabase/seed.sql) | *optional* demo data: 2 messes, 17 users, 60 days of history. Every demo password is `Demo@12345` (manager `rafi@messmate.demo`) |
-| 5 | [`supabase/tests/rls_isolation.sql`](../supabase/tests/rls_isolation.sql), [`functional.sql`](../supabase/tests/functional.sql) | *optional* proof on the real database. Each cleans up after itself and ends with a row like `RLS isolation: 125 checks passed` |
+| 5 | [`supabase/tests/rls_isolation.sql`](../supabase/tests/rls_isolation.sql), [`functional.sql`](../supabase/tests/functional.sql) | *optional* proof on the real database. Each cleans up after itself and ends with a row like `RLS isolation: 132 checks passed` |
 
 `setup.sql` is long; paste all of it and press **Run** once. A green "Success. No rows
 returned" means it worked.
 
 > **Already ran an older `setup.sql`?** Don't run it again. Run only the newer files from
-> `supabase/migrations/` one by one, in order (for example `0014` → `0019`).
+> `supabase/migrations/` one by one, in order (for example `0014` → `0020`).
 
 Check the cron jobs exist:
 
@@ -241,7 +241,7 @@ as `rafi@messmate.demo` / `Demo@12345` to see a manager's view.
 4. **Settings → General → Social preview:** upload
    [`public/icons/og.png`](../public/icons/og.png) (1200 × 630).
 5. The workflow in [`.github/workflows/ci.yml`](../.github/workflows/ci.yml) runs on every
-   push and pull request: lint, types, message parity, production build and the 272 SQL
+   push and pull request: lint, types, message parity, production build and the 279 SQL
    checks. Its badge is at the top of the README.
 6. Pin the repository on your profile.
 
@@ -353,7 +353,7 @@ Every push to `main` now deploys automatically, and pull requests get a deploy p
 | No confirmation email | Check the Gmail app password and port 465 in SMTP settings, the spam folder, and **Authentication → Logs**. |
 | Google: `redirect_uri_mismatch` | The Google client is missing `https://<ref>.supabase.co/auth/v1/callback`. |
 | After Google sign-in you land on localhost | The live address is missing from Supabase **Redirect URLs**, so Supabase fell back to the Site URL. |
-| Profile or listing photos don't load | `NEXT_PUBLIC_SUPABASE_URL` was not set when the site was **built** (image host allow-list). Redeploy. |
+| Profile or listing photos don't load | `NEXT_PUBLIC_SUPABASE_URL` was not set when the site was **built**. Both the image host allow-list and the Content-Security-Policy are generated from it. Redeploy. |
 | "Delete my account" leaves the login working | `SUPABASE_SECRET_KEY` is not set on Netlify. Personal data was still wiped. |
 | Reminders and check-in alerts never fire | pg_cron is off or `0013_cron.sql` was not run. Check `select * from cron.job_run_details order by start_time desc limit 5;`. |
 | Build fails at secrets scanning | See the Free plan notes in section 5. |
