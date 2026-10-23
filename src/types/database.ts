@@ -3278,6 +3278,16 @@ export type Database = {
         }
         Returns: Json
       }
+      get_care_alert: {
+        Args: {
+          p_alert_id: string
+        }
+        Returns: Json
+      }
+      get_care_overview: {
+        Args: never
+        Returns: Json
+      }
       get_display_names: {
         Args: {
           p_ids: string[]
@@ -3327,6 +3337,12 @@ export type Database = {
           member_count: number
           invite_enabled: boolean
         }[]
+      }
+      get_mess_polls: {
+        Args: {
+          p_limit?: number
+        }
+        Returns: Json
       }
       get_mess_report: {
         Args: {

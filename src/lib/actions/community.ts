@@ -22,7 +22,7 @@ export async function setListingSaved(listingId: string, saved: boolean): Promis
   return ok(undefined);
 }
 
-const REPORT_PATHS = { listing: "/housing", market: "/market", service: "/services" } as const;
+const REPORT_PATHS = { listing: "/housing", market: "/market", service: "/services", event: "/care/events", job: "/care/jobs" } as const;
 
 /** "Report this post" goes to the super admin's feedback inbox as type `report`. */
 export async function reportContent(input: ReportInput): Promise<ActionResult> {

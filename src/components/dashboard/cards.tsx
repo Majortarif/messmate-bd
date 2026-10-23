@@ -240,7 +240,18 @@ export function NoticesCard({ data }: { data: MemberDashboard }) {
   const t = useTranslations("dashboard.notices");
   const locale = useLocale();
   return (
-    <Card title={t("title")} icon={Megaphone}>
+    <Card
+      title={t("title")}
+      icon={Megaphone}
+      action={
+        <Button asChild size="sm" variant="ghost" className="-mr-2">
+          <Link href="/mess">
+            {t("all")}
+            <ArrowRight className="size-4" aria-hidden="true" />
+          </Link>
+        </Button>
+      }
+    >
       {data.notices.length === 0 ? (
         <EmptyState icon={Megaphone} title={t("empty")} className="py-4" />
       ) : (
@@ -272,7 +283,18 @@ export function ChoresCard({ data }: { data: MemberDashboard }) {
   const tc = useTranslations("choreTypes");
   const locale = useLocale();
   return (
-    <Card title={t("title")} icon={ShoppingBasket}>
+    <Card
+      title={t("title")}
+      icon={ShoppingBasket}
+      action={
+        <Button asChild size="sm" variant="ghost" className="-mr-2">
+          <Link href="/mess/roster">
+            {t("roster")}
+            <ArrowRight className="size-4" aria-hidden="true" />
+          </Link>
+        </Button>
+      }
+    >
       {data.my_chores.length === 0 ? (
         <EmptyState icon={ShoppingBasket} title={t("empty")} className="py-4" />
       ) : (

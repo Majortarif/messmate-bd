@@ -39,6 +39,16 @@ export function formatTime(value: string | Date, locale: AppLocale | string) {
   );
 }
 
+/** A timestamp's calendar date in Dhaka as YYYY-MM-DD (for date inputs). */
+export function toDhakaDate(value: string | Date) {
+  return new Intl.DateTimeFormat("en-CA", { timeZone: DHAKA_TZ }).format(new Date(value));
+}
+
+/** Whole calendar days (Dhaka) since a timestamp: 0 = today, 1 = yesterday. */
+export function dhakaDaysAgo(value: string | Date) {
+  return Math.round((Date.parse(dhakaToday()) - Date.parse(toDhakaDate(value))) / 86_400_000);
+}
+
 /** Today's date in Dhaka as YYYY-MM-DD. */
 export function dhakaToday() {
   return new Intl.DateTimeFormat("en-CA", { timeZone: DHAKA_TZ }).format(new Date());

@@ -387,8 +387,17 @@ select public.cast_vote(current_setting('tests.poll')::uuid,
 select tests.check((select votes from public.poll_results(current_setting('tests.poll')::uuid) where label = 'খিচুড়ি') = 2
                    and (select votes from public.poll_results(current_setting('tests.poll')::uuid) where label = 'ভাত-মাছ') = 0,
                    'changing a vote replaces the old one');
+select tests.check((select (o ->> 'votes')::int from jsonb_array_elements(public.get_mess_polls()) p,
+                           jsonb_array_elements(p -> 'options') o
+                     where (p ->> 'id')::uuid = current_setting('tests.poll')::uuid and o ->> 'label' = 'খিচুড়ি') = 2,
+                   'polls page shows live counts');
+select tests.check((select bool_or((o ->> 'mine')::boolean) from jsonb_array_elements(public.get_mess_polls()) p,
+                           jsonb_array_elements(p -> 'options') o
+                     where (p ->> 'id')::uuid = current_setting('tests.poll')::uuid), 'polls page marks my own vote');
 select tests.login('F1');
 select tests.throws(format($q$select public.cast_vote(%L, '{}'::uuid[])$q$, current_setting('tests.poll')), 'not_member', 'other mess cannot vote');
+select tests.check(not exists (select 1 from jsonb_array_elements(public.get_mess_polls()) p
+                                where (p ->> 'id')::uuid = current_setting('tests.poll')::uuid), 'other mess never sees the poll');
 
 -- ================================================================ 8. Care ===
 select tests.login('U1');
@@ -408,11 +417,19 @@ select tests.check((select count(*) from public.care_alerts) = 2, 'recipient see
 select tests.check((select count(*) from public.notifications where type = 'care_sick' and body like '%হালকা খাবার%') = 1,
                    'sick alert says light food is needed');
 select public.respond_care_alert(current_setting('tests.alert')::uuid, 'on_my_way');
+select tests.check((public.get_care_alert(current_setting('tests.alert')::uuid) ->> 'my_response') = 'on_my_way',
+                   'recipient sees their own response');
+select tests.check((public.get_care_alert(current_setting('tests.alert')::uuid) ->> 'name') = 'Auto member one',
+                   'recipient sees who needs help');
+select tests.check(jsonb_array_length(public.get_care_overview() -> 'alerts_for_me') = 2, 'care hub lists alerts sent to me');
+select tests.check(jsonb_array_length(public.get_care_overview() -> 'my_alerts') = 0, 'care hub keeps my own alerts separate');
 
 select tests.login('F1');
 select tests.check((select count(*) from public.care_alerts) = 0, 'other mess cannot see Care alerts');
 select tests.throws(format('select public.respond_care_alert(%L, %L)', current_setting('tests.alert'), 'called'), 'not_found',
                     'only recipients can respond');
+select tests.throws(format('select public.get_care_alert(%L)', current_setting('tests.alert')), 'not_found',
+                    'only the owner and recipients can open an alert');
 
 select tests.login('U1');
 select tests.check((select status from public.care_alerts where id = current_setting('tests.alert')::uuid) = 'acknowledged', 'alert acknowledged');

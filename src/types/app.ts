@@ -232,3 +232,62 @@ export type PlatformRole = (typeof PLATFORM_ROLES)[number];
 
 export const MODERATION_KINDS = ["listing", "service", "recipe", "event", "job", "market"] as const;
 export type ModerationKind = (typeof MODERATION_KINDS)[number];
+
+/** One row of public.get_mess_polls() */
+export type MessPoll = {
+  id: string;
+  question: string;
+  description: string | null;
+  allow_multiple: boolean;
+  is_anonymous: boolean;
+  closes_at: string | null;
+  is_closed: boolean;
+  created_at: string;
+  created_by: string;
+  creator_name: string;
+  voters: number;
+  options: { id: string; label: string; votes: number; mine: boolean; names: string[] }[];
+};
+
+/** Shape of public.get_care_overview() */
+export type CareOverview = {
+  today: string;
+  mood_today: { mood: Enums<"mood_level">; note: string | null } | null;
+  mood_week: { date: string; mood: Enums<"mood_level"> | null }[];
+  water_today: { glasses: number; goal: number } | null;
+  water_goal: number;
+  active_checkin: { id: string; label: string; expected_by: string; status: Enums<"checkin_status"> } | null;
+  last_family_call: string | null;
+  contacts: number;
+  reminders_active: number;
+  my_alerts: { id: string; type: Enums<"care_alert_type">; status: Enums<"care_alert_status">; created_at: string; responses: number; recipients: number }[];
+  alerts_for_me: {
+    id: string;
+    type: Enums<"care_alert_type">;
+    status: Enums<"care_alert_status">;
+    created_at: string;
+    name: string;
+    message: string | null;
+    needs: string[];
+    my_response: string | null;
+  }[];
+};
+
+/** Shape of public.get_care_alert() */
+export type CareAlertDetail = {
+  id: string;
+  is_owner: boolean;
+  type: Enums<"care_alert_type">;
+  status: Enums<"care_alert_status">;
+  message: string | null;
+  needs: string[];
+  lat: number | null;
+  lng: number | null;
+  location_text: string | null;
+  created_at: string;
+  resolved_at: string | null;
+  name: string;
+  phone: string | null;
+  my_response: string | null;
+  recipients: { name: string; response: string | null; responded_at: string | null }[];
+};

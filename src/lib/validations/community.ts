@@ -215,7 +215,7 @@ export const reviewSchema = z.object({
 export type ReviewInput = z.input<typeof reviewSchema>;
 
 // ------------------------------------------------------------------- report --
-export const REPORT_KINDS = ["listing", "market", "service"] as const;
+export const REPORT_KINDS = ["listing", "market", "service", "event", "job"] as const;
 export const reportSchema = z.object({
   kind: z.enum(REPORT_KINDS),
   id: z.uuid(),

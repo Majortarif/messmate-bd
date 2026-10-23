@@ -25,11 +25,12 @@ storage buckets, scheduled jobs, demo seed and the SQL test suites.
 | `migrations/0016_manager_sees_former_members.sql` | managers can still see people who left |
 | `migrations/0017_admin_reports.sql` | activity log, monthly mess report, super admin directories |
 | `migrations/0018_community_names.sql` | short display names for community posts, roommate matches with English areas |
+| `migrations/0019_mess_life_care.sql` | one-call read models for polls, the Care hub and a Care alert |
 | `setup.sql` | **generated** bundle of every migration except 0013 (cron), for one paste |
 | `seed.sql` | optional demo data (2 messes, 17 users, 60 days of history) |
 | `remove_demo.sql` | deletes all demo data |
-| `tests/rls_isolation.sql` | proves messes are isolated (120 checks) |
-| `tests/functional.sql` | business-rule checks (139 checks) |
+| `tests/rls_isolation.sql` | proves messes are isolated (125 checks) |
+| `tests/functional.sql` | business-rule checks (147 checks) |
 | `tests/pglite/` | runs all of the above locally in PGlite |
 
 ## Set up a Supabase project
@@ -42,7 +43,7 @@ storage buckets, scheduled jobs, demo seed and the SQL test suites.
 4. Optional: run `seed.sql` for demo data. Every demo account uses the password
    `Demo@12345` (manager: `rafi@messmate.demo`, member: `tanvir@messmate.demo`).
 5. Optional: run `tests/rls_isolation.sql` and `tests/functional.sql`. Each one cleans up
-   after itself and ends with a single row such as `RLS isolation: 120 checks passed`.
+   after itself and ends with a single row such as `RLS isolation: 125 checks passed`.
 6. Make your own account the platform owner (after you sign up in the app):
 
    ```sql
@@ -53,7 +54,7 @@ storage buckets, scheduled jobs, demo seed and the SQL test suites.
 
 **Already ran an older `setup.sql`?** Don't run the whole bundle again. Paste only the
 migration files that are newer than your last run, one at a time and in order (for
-example `0014` → `0018`). Each file is safe to run once.
+example `0014` → `0019`). Each file is safe to run once.
 
 Auth settings (Google login, Gmail SMTP for confirmation and reset emails) are
 covered in the Phase 8 deployment guide.

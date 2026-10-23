@@ -228,6 +228,11 @@ select tests.throws(format('select public.close_month(%L, %L)', tests.id('messA'
                     'not_manager', 'member cannot close month');
 select tests.throws('select public.get_manager_dashboard()', 'not_manager', 'member cannot open manager dashboard');
 select tests.throws('select public.get_activity_log()', 'not_manager', 'member cannot read the activity log');
+select tests.check((select count(*) from jsonb_array_elements(public.get_mess_polls()) p
+                     where (p ->> 'id')::uuid = tests.id('pollB')) = 0
+                   and (select count(*) from jsonb_array_elements(public.get_mess_polls()) p
+                         where (p ->> 'id')::uuid = tests.id('pollA')) = 1, 'member sees only own mess polls');
+select tests.check((public.get_care_alert(tests.id('alertA2')) ->> 'is_owner')::boolean, 'alert owner opens own alert');
 select tests.throws('select public.get_mess_report()', 'not_manager', 'member cannot open the mess report');
 select tests.throws('select public.admin_list_users()', 'not_super_admin', 'member cannot list platform users');
 select tests.throws('select public.get_platform_stats()', 'not_super_admin', 'member cannot open platform stats');
@@ -286,6 +291,7 @@ select tests.check((select items from public.menus where id = tests.id('menuB'))
 select tests.check((select count(*) from public.notices where mess_id = tests.id('messB')) = 1, 'mess B notice untouched by manager A');
 select tests.check((select count(*) from public.care_alerts) = 0, 'other mess cannot see care alert');
 select tests.check((select count(*) from storage.objects where bucket_id = 'deposit-proofs') = 0, 'other mess cannot see deposit proof');
+select tests.throws(format('select public.get_care_alert(%L)', tests.id('alertA2')), 'not_found', 'other mess cannot open care alert');
 
 -- --------------------------------------------------- pending applicant (P) --
 select tests.login('P');
@@ -302,6 +308,7 @@ select tests.login('X');
 select tests.check((select count(*) from public.profiles) = 1, 'outsider sees only own profile');
 select tests.check((select count(*) from public.messes) = 0, 'outsider sees no mess');
 select tests.check((select count(*) from public.ledger_entries) = 0, 'outsider sees no ledger');
+select tests.throws('select public.get_mess_polls()', 'not_member', 'outsider has no mess polls');
 select tests.check((select count(*) from public.areas) > 0, 'signed-in user reads areas');
 select tests.throws($q$select public.request_join('ZZZZZZZZ')$q$, 'invalid_invite', 'unknown invite code rejected');
 
@@ -316,6 +323,7 @@ select tests.throws('select public.get_member_dashboard()', 'permission denied',
 select tests.throws('select public.get_activity_log()', 'permission denied', 'visitor cannot call activity log');
 select tests.throws('select public.admin_list_messes()', 'permission denied', 'visitor cannot call admin RPCs');
 select tests.throws('select public.get_display_names(array[gen_random_uuid()])', 'permission denied', 'visitor cannot look up names');
+select tests.throws('select public.get_care_overview()', 'permission denied', 'visitor cannot open the Care hub');
 
 -- --------------------------------------------------------- super admin (S) --
 select tests.login('S');
