@@ -275,11 +275,10 @@ Every push to `main` now deploys automatically, and pull requests get a deploy p
   successful production deploy costs 15 credits, and bandwidth, compute and requests also
   draw from the same pool. Deploy previews are free. Push to `main` in batches rather than
   after every tiny change, and keep an eye on **Usage & billing**.
-- If a build stops at **secrets scanning** because it found the Supabase URL or
-  publishable key in the output, that is expected: both are public by design. Add an
-  environment variable `SECRETS_SCAN_OMIT_KEYS` =
-  `NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` and redeploy. Never
-  add `SUPABASE_SECRET_KEY` to that list.
+- Don't tick **Contains secret values** for the `NEXT_PUBLIC_*` variables: they are
+  public by design and end up in the browser bundle. `netlify.toml` already tells the
+  secrets scanner to skip them (`SECRETS_SCAN_OMIT_KEYS`), so a build doesn't fail even
+  if they were marked secret. Never add `SUPABASE_SECRET_KEY` to that list.
 - Free Supabase projects pause after about a week without traffic. A paused project
   can be restored from the dashboard; cron jobs catch up on the next run.
 
