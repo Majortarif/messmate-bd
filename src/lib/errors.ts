@@ -74,6 +74,13 @@ export const ERROR_KEYS = [
   "cannot_change_own_role",
   "forbidden_role_change",
   "invalid_kind",
+  "too_many_listings",
+  "invalid_photo_path",
+  "too_many_photos",
+  "roommate_profile_required",
+  "too_many_checklists",
+  "cannot_review_own_service",
+  "item_removed_by_moderator",
   // client / generic database
   "upload_failed",
   "file_too_large",

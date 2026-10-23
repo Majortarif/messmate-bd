@@ -315,6 +315,7 @@ select tests.throws('select count(*) from public.ledger_entries', 'permission de
 select tests.throws('select public.get_member_dashboard()', 'permission denied', 'visitor cannot call member RPCs');
 select tests.throws('select public.get_activity_log()', 'permission denied', 'visitor cannot call activity log');
 select tests.throws('select public.admin_list_messes()', 'permission denied', 'visitor cannot call admin RPCs');
+select tests.throws('select public.get_display_names(array[gen_random_uuid()])', 'permission denied', 'visitor cannot look up names');
 
 -- --------------------------------------------------------- super admin (S) --
 select tests.login('S');

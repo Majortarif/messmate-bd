@@ -3278,6 +3278,16 @@ export type Database = {
         }
         Returns: Json
       }
+      get_display_names: {
+        Args: {
+          p_ids: string[]
+        }
+        Returns: {
+          id: string
+          name: string
+          avatar_url: string
+        }[]
+      }
       get_manager_dashboard: {
         Args: {
           p_month?: string
@@ -3469,6 +3479,7 @@ export type Database = {
           move_in_date: string
           about: string
           area_names: string[]
+          area_names_en: string[]
           contact_phone: string
           score: number
           reasons: string[]

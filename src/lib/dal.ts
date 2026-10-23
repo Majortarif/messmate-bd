@@ -59,6 +59,13 @@ export async function requireMember() {
   return { ...viewer, membership };
 }
 
+/** Signed in with the terms accepted; no mess needed (housing, market, services). */
+export async function requireOnboarded() {
+  const viewer = await requireViewer();
+  if (!viewer.context.profile?.terms_accepted) return go("/onboarding");
+  return viewer;
+}
+
 /** Platform owner (super admin); anyone else is sent to the dashboard. */
 export async function requireSuperAdmin() {
   const viewer = await requireViewer();

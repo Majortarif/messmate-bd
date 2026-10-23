@@ -19,7 +19,7 @@ import { createClient } from "@/lib/supabase/server";
 export default function AppLayout({ children }: LayoutProps<"/[locale]">) {
   return (
     <div className="min-h-dvh">
-      <aside className="fixed inset-y-0 left-0 z-30 hidden w-64 flex-col border-r bg-sidebar lg:flex">
+      <aside className="fixed inset-y-0 left-0 z-30 hidden w-64 flex-col border-r bg-sidebar lg:flex print:hidden">
         <div className="flex h-16 items-center px-5">
           <Link href="/dashboard" aria-label="MessMate BD">
             <Logo />
@@ -35,8 +35,8 @@ export default function AppLayout({ children }: LayoutProps<"/[locale]">) {
         </div>
       </aside>
 
-      <div className="lg:pl-64">
-        <header className="sticky top-0 z-30 flex h-16 items-center justify-between gap-2 border-b bg-background/80 px-4 backdrop-blur-xl sm:px-6">
+      <div className="lg:pl-64 print:pl-0">
+        <header className="sticky top-0 z-30 flex h-16 items-center justify-between gap-2 border-b bg-background/80 px-4 backdrop-blur-xl sm:px-6 print:hidden">
           <Link href="/dashboard" className="lg:hidden" aria-label="MessMate BD">
             <Logo markClassName="size-7" />
           </Link>
@@ -46,7 +46,10 @@ export default function AppLayout({ children }: LayoutProps<"/[locale]">) {
             </Suspense>
           </div>
           <div className="flex items-center gap-0.5">
-            <LocaleSwitcher className="hidden sm:inline-flex" />
+            {/* reads the pathname, which is request data on dynamic routes like /housing/[id] */}
+            <Suspense fallback={<Skeleton className="hidden size-10 rounded-lg sm:block" />}>
+              <LocaleSwitcher className="hidden sm:inline-flex" />
+            </Suspense>
             <ThemeToggle className="hidden sm:inline-flex" />
             <Suspense fallback={<Skeleton className="size-10 rounded-full" />}>
               <Bell />
@@ -56,7 +59,7 @@ export default function AppLayout({ children }: LayoutProps<"/[locale]">) {
             </Suspense>
           </div>
         </header>
-        <main id="main" className="mx-auto w-full max-w-6xl px-4 pb-28 pt-6 sm:px-6 lg:pb-12">
+        <main id="main" className="mx-auto w-full max-w-6xl px-4 pb-28 pt-6 sm:px-6 lg:pb-12 print:max-w-none print:p-0">
           {children}
         </main>
       </div>

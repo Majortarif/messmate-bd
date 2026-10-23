@@ -219,6 +219,52 @@ html.light {
   }
 }
 
+/* Map pins and popups (Leaflet, see components/community/geo-map.tsx) */
+.mm-map .leaflet-container {
+  font-family: inherit;
+  background: var(--muted);
+}
+.mm-pin span {
+  display: block;
+  width: 26px;
+  height: 26px;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  background: var(--primary);
+  border: 3px solid var(--card);
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.35);
+}
+.mm-map .leaflet-popup-content-wrapper,
+.mm-map .leaflet-popup-tip {
+  background: var(--popover);
+  color: var(--popover-foreground);
+}
+.mm-map .leaflet-popup-content {
+  margin: 10px 14px;
+}
+.mm-popup-title {
+  margin: 0 !important;
+  font-weight: 600;
+}
+.mm-popup-sub {
+  margin: 2px 0 0 !important;
+  font-size: 12px;
+  color: var(--muted-foreground);
+}
+.mm-popup-link {
+  display: inline-block;
+  margin-top: 6px;
+  font-weight: 600;
+  color: var(--primary) !important;
+}
+.mm-map .leaflet-control-attribution {
+  font-size: 10px;
+}
+/* OSM tiles are light; soften them for the dark theme */
+html:not(.light) .mm-map .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) brightness(0.92) contrast(0.88);
+}
+
 /* Statements print on white paper whatever theme is on screen. */
 @media print {
   :root,

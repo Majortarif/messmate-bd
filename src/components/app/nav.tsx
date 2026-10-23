@@ -50,9 +50,9 @@ const MAIN: NavItem[] = [
   { key: "billing", href: "/billing", icon: Receipt, ready: true, mobile: true },
   { key: "mess", href: "/mess", icon: Users, ready: false },
   { key: "care", href: "/care", icon: HeartPulse, ready: false, mobile: true },
-  { key: "housing", href: "/housing", icon: Building2, ready: false },
-  { key: "market", href: "/market", icon: Store, ready: false },
-  { key: "services", href: "/services", icon: Wrench, ready: false },
+  { key: "housing", href: "/housing", icon: Building2, ready: true },
+  { key: "market", href: "/market", icon: Store, ready: true },
+  { key: "services", href: "/services", icon: Wrench, ready: true },
 ];
 const MANAGER: NavItem[] = [
   { key: "overview", href: "/manage", icon: LayoutDashboard, ready: true, exact: true },
@@ -138,7 +138,7 @@ export function MobileNav(access: NavAccess) {
   return (
     <>
       <nav
-        className="safe-bottom fixed inset-x-0 bottom-0 z-40 border-t bg-background/90 backdrop-blur-xl lg:hidden"
+        className="safe-bottom fixed inset-x-0 bottom-0 z-40 border-t bg-background/90 backdrop-blur-xl lg:hidden print:hidden"
         aria-label={t("label")}
       >
         <div className="mx-auto flex max-w-md items-stretch justify-around px-2">

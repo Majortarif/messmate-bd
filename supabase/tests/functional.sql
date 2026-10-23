@@ -477,6 +477,11 @@ select tests.check((select score from public.roommate_matches() where user_id = 
 select tests.check(not exists (select 1 from public.roommate_matches() where user_id = tests.id('F2')), 'matches are same-gender only');
 select tests.check((select contact_phone from public.roommate_matches() where user_id = tests.id('U1')) is null, 'phone hidden unless shared');
 select tests.check((select count(*) from public.roommate_profiles) = 1, 'roommate profiles are private rows');
+select tests.check((select area_names_en from public.roommate_matches() where user_id = tests.id('U1')) = array['Mirpur'],
+                   'matches name areas in English too');
+select tests.check((select name from public.get_display_names(array[tests.id('U1')])) = 'Auto member one', 'messmates see full names');
+select tests.login('F1');
+select tests.check((select name from public.get_display_names(array[tests.id('U1')])) = 'Auto m.', 'strangers see a short name');
 
 -- ========================================================= 11. chores ===
 select tests.login('UM');
