@@ -1,0 +1,13 @@
+{
+  "name": "messmate-db-tests",
+  "private": true,
+  "type": "module",
+  "description": "Runs every MessMate BD migration, the seed and the SQL test suites inside PGlite (in-memory Postgres) with a small Supabase shim.",
+  "scripts": {
+    "test": "node run.mjs",
+    "bundle": "node run.mjs --bundle-only"
+  },
+  "dependencies": {
+    "@electric-sql/pglite": "^0.3.0"
+  }
+}
