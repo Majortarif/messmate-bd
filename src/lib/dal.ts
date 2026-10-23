@@ -42,10 +42,11 @@ async function go(href: string): Promise<never> {
   return redirect({ href, locale });
 }
 
-/** Signed in; otherwise to /login. */
+/** Signed in; otherwise to /login. A deleted account only sees /account-deleted. */
 export async function requireViewer() {
   const viewer = await getViewer();
   if (!viewer) return go("/login");
+  if (viewer.context.profile?.is_deleted) return go("/account-deleted");
   return viewer;
 }
 

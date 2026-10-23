@@ -1,6 +1,6 @@
 "use client";
 
-import { Download, Languages, LogOut, Moon, Sun } from "lucide-react";
+import { Bell, Download, Languages, LogOut, Moon, Settings, Sun } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -14,7 +14,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { setTheme, useTheme } from "@/components/theme";
-import { usePathname, useRouter } from "@/i18n/navigation";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { signOut } from "@/lib/actions/auth";
 import { initials } from "@/lib/format";
 
@@ -64,6 +64,19 @@ export function UserMenu({
           {email && <span className="truncate text-xs text-muted-foreground">{email}</span>}
           <span className="text-xs text-primary">{roleLabel}</span>
         </DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem asChild>
+          <Link href="/settings">
+            <Settings className="size-4" />
+            {t("settings")}
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Link href="/notifications">
+            <Bell className="size-4" />
+            {t("notifications")}
+          </Link>
+        </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem onSelect={() => setTheme(theme === "dark" ? "light" : "dark")}>
           {theme === "dark" ? <Sun className="size-4" /> : <Moon className="size-4" />}

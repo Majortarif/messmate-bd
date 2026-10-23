@@ -103,6 +103,7 @@ export const ERROR_KEYS = [
   "event_not_open",
   "event_full",
   "post_removed_by_moderator",
+  "transfer_manager_first",
   // client / generic database
   "upload_failed",
   "file_too_large",

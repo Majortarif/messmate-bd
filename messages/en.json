@@ -206,7 +206,8 @@
       "privacy": "Privacy Policy",
       "terms": "Terms of Use",
       "signIn": "Sign in",
-      "rights": "© {year} MessMate BD. All rights reserved."
+      "rights": "© {year} MessMate BD. All rights reserved.",
+      "feedback": "Feedback & contact"
     }
   },
   "auth": {
@@ -316,7 +317,8 @@
     "pollOptions": "Give at least 2 different options.",
     "pickMembers": "Pick at least one member.",
     "pickDays": "Pick at least one day.",
-    "descriptionLength": "Write a bit more (at least 10 characters)."
+    "descriptionLength": "Write a bit more (at least 10 characters).",
+    "messageLength": "Write a little more (at least 5 characters)."
   },
   "errors": {
     "generic": "Something went wrong. Try again in a moment.",
@@ -420,7 +422,8 @@
     "payment_exceeds_loan": "That's more than what's left to repay.",
     "event_not_open": "You can't join this event any more.",
     "event_full": "This event is full.",
-    "post_removed_by_moderator": "An admin removed this post."
+    "post_removed_by_moderator": "An admin removed this post.",
+    "transfer_manager_first": "You're the only manager of your mess. Make someone else a manager first, then delete your account."
   },
   "onboarding": {
     "metaTitle": "Get started",
@@ -557,7 +560,15 @@
     "title": "Notifications",
     "markAllRead": "Mark all read",
     "empty": "All quiet",
-    "emptyBody": "New notices, approvals and reminders will show up here."
+    "emptyBody": "New notices, approvals and reminders will show up here.",
+    "seeAll": "See all notifications",
+    "unreadCount": "{count, plural, one {# unread} other {# unread}}",
+    "allRead": "You're all caught up",
+    "today": "Today",
+    "markAll": "Mark all read",
+    "clearRead": "Clear read",
+    "cleared": "Read notifications cleared",
+    "retention": "Read notifications are deleted automatically after 90 days."
   },
   "userMenu": {
     "open": "Account menu",
@@ -565,7 +576,9 @@
     "darkMode": "Dark mode",
     "language": "বাংলায় দেখুন",
     "install": "Install app",
-    "signOut": "Sign out"
+    "signOut": "Sign out",
+    "settings": "Settings",
+    "notifications": "Notifications"
   },
   "dashboard": {
     "greeting": {
@@ -2997,6 +3010,129 @@
         "expires": "Closes on",
         "post": "Post"
       }
+    }
+  },
+  "feedback": {
+    "title": "Feedback & contact",
+    "subtitle": "A problem, an idea or a question? Tell us — we read every message.",
+    "backHome": "Back home",
+    "orEmail": "Or email us:",
+    "privacyNote": "Only the MessMate BD admins see your message.",
+    "fab": "Send feedback",
+    "dialogTitle": "Send feedback",
+    "dialogBody": "The page you're on is sent along, so we can understand it better.",
+    "form": {
+      "thanks": "Thank you!",
+      "thanksBody": "Your message arrived. We'll get in touch if we need to.",
+      "close": "Close",
+      "another": "Send another",
+      "type": "About",
+      "types": {
+        "feedback": "Idea",
+        "bug": "Problem/bug",
+        "contact": "Contact",
+        "report": "Report"
+      },
+      "subject": "Subject",
+      "message": "Message",
+      "messageHint": "For a bug, say what you were doing and what happened.",
+      "messagePlaceholder": "What would you like to say…",
+      "email": "Email for a reply",
+      "emailHint": "Only if you'd like an answer.",
+      "send": "Send"
+    }
+  },
+  "accountDeleted": {
+    "title": "Your account was deleted",
+    "body": "Your personal data, Care data, posts and photos have been removed. Thank you for using MessMate BD.",
+    "kept": "Your mess money records were kept without your name, so the rest of the mess still balances.",
+    "home": "Back home"
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Your profile, password, mess and data rights.",
+    "jump": "Jump to",
+    "jumpTo": {
+      "profile": "Profile",
+      "password": "Sign-in",
+      "mess": "Mess",
+      "data": "My data"
+    },
+    "profile": {
+      "title": "Profile",
+      "body": "Your messmates see your name, photo and phone.",
+      "changePhoto": "Change photo",
+      "addPhoto": "Add photo",
+      "removePhoto": "Remove photo",
+      "photoSaved": "Photo saved",
+      "saved": "Profile saved",
+      "name": "Full name",
+      "phone": "Mobile",
+      "phoneHint": "Visible to your messmates and manager.",
+      "gender": "Gender",
+      "notSay": "Prefer not to say",
+      "occupation": "Occupation",
+      "institution": "Institution",
+      "institutionHint": "University, college or office.",
+      "homeDistrict": "Home district",
+      "homeDistrictPlaceholder": "e.g. Cumilla",
+      "bloodGroup": "Blood group",
+      "bloodGroupHint": "Useful in an emergency.",
+      "language": "Preferred language",
+      "bio": "About you",
+      "bioPlaceholder": "A line or two",
+      "guardian": "Guardian",
+      "guardianHint": "For emergencies. Only you and your manager can see it.",
+      "guardianName": "Name",
+      "guardianPhone": "Phone",
+      "save": "Save profile"
+    },
+    "password": {
+      "title": "Sign-in and password",
+      "emailLogin": "Email",
+      "changed": "Password changed",
+      "googleNote": "You sign in with Google. You can also set a password to sign in with your email.",
+      "new": "New password",
+      "rules": "At least 8 characters, with letters and numbers.",
+      "confirm": "Type it again",
+      "change": "Change password",
+      "set": "Set a password"
+    },
+    "mess": {
+      "title": "My mess",
+      "balance": "Balance {amount}",
+      "note": "After leaving you won't see the mess any more. Your money records stay with the manager.",
+      "leave": "Leave mess",
+      "leaveTitle": "Leave {mess}?",
+      "leaveBody": "Your current balance is {balance}. Settle any amount due or owed with your manager.",
+      "cancel": "Cancel",
+      "left": "You left the mess",
+      "leaveConfirm": "Yes, leave"
+    },
+    "data": {
+      "title": "My data",
+      "body": "Your data is yours. Download all of it or delete your account.",
+      "exportTitle": "Download my data",
+      "exportBody": "Profile, mess records, posts and Care data — in one JSON file.",
+      "export": "Download",
+      "deleteTitle": "Delete account",
+      "deleteCard": "This is permanent and can't be undone.",
+      "delete": "Delete account",
+      "deleteBody": "Deleting your account:",
+      "deleteGone": "removes your profile, Care data, posts, photos and contacts;",
+      "deleteKept": "keeps your mess money records without your name, so others' accounts still balance;",
+      "deleteManager": "needs another manager first if you're the only manager of your mess.",
+      "typeToConfirm": "Type {word} to confirm",
+      "cancel": "Cancel",
+      "deleting": "Deleting…",
+      "deleteConfirm": "Delete forever",
+      "since": "On MessMate since {date}",
+      "accepted": "accepted the terms {date}"
+    },
+    "links": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Use",
+      "feedback": "Feedback & contact"
     }
   }
 }

@@ -132,6 +132,13 @@ export function NotificationBell({ userId, initialUnread }: { userId: string; in
             </ul>
           )}
         </ScrollArea>
+        <Link
+          href="/notifications"
+          onClick={() => setOpen(false)}
+          className="block border-t px-4 py-2.5 text-center text-sm font-medium text-primary hover:bg-accent/60"
+        >
+          {t("seeAll")}
+        </Link>
       </PopoverContent>
     </Popover>
   );

@@ -18,6 +18,9 @@ export function SiteFooter() {
           <Link href="/terms" className="hover:text-foreground">
             {t("terms")}
           </Link>
+          <Link href="/feedback" className="hover:text-foreground">
+            {t("feedback")}
+          </Link>
           <Link href="/login" className="hover:text-foreground">
             {t("signIn")}
           </Link>

@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { getTranslations } from "next-intl/server";
+import { FeedbackFab } from "@/components/account/feedback";
 import { MobileNav, SidebarNav } from "@/components/app/nav";
 import { NotificationBell } from "@/components/app/notification-bell";
 import { UserMenu } from "@/components/app/user-menu";
@@ -67,6 +68,7 @@ export default function AppLayout({ children }: LayoutProps<"/[locale]">) {
       <Suspense fallback={null}>
         <ViewerNav variant="mobile" />
       </Suspense>
+      <FeedbackFab />
     </div>
   );
 }

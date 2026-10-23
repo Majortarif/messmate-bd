@@ -17,8 +17,9 @@ const privacyBn: LegalDoc = {
       body: [
         "অ্যাকাউন্ট: নাম, ইমেইল, পাসওয়ার্ড (এনক্রিপ্ট করা অবস্থায়, আমরা দেখতে পারি না), ঐচ্ছিকভাবে মোবাইল নম্বর ও প্রোফাইল ছবি।",
         "মেসের হিসাব: কোন মেসের সদস্য, রুম, মিলের অর্ডার, টাকা জমার অনুরোধ (পরিমাণ, বিকাশ/নগদ/রকেটের TrxID, পাঠানোর নম্বর), বিল, বাজার খরচ ও মাসিক হিসাব।",
-        "আপনি নিজে যা যোগ করেন: অভিযোগ, নোটিশ, ভোট, বাসা/সিটের বিজ্ঞাপন, বেচাকেনার পোস্ট, রিভিউ, ছবি।",
-        "কেয়ার ফিচার (শুধু আপনি ব্যবহার করলে): মুড চেক-ইন, অসুস্থ/SOS বার্তা, জরুরি যোগাযোগের নম্বর, রিমাইন্ডার, ধার-দেনার হিসাব, ব্যক্তিগত বাজেট। লোকেশন কেবল তখনই নেওয়া হয় যখন আপনি নিজে SOS পাঠান।",
+        "আপনি নিজে যা যোগ করেন: অভিযোগ, নোটিশ, ভোট, বাসা/সিটের বিজ্ঞাপন (ছবি ও আপনার দেওয়া ম্যাপের পিন সহ), রুমমেট প্রোফাইল (বাজেট, অভ্যাস, পছন্দের এলাকা), বেচাকেনার পোস্ট, সার্ভিসের তথ্য, রিভিউ, ইভেন্ট ও টিউশন পোস্ট।",
+        "কেয়ার ফিচার (শুধু আপনি ব্যবহার করলে): মুড চেক-ইন, অসুস্থ/SOS বার্তা, নিরাপদে পৌঁছানোর চেক-ইন, জরুরি যোগাযোগের নম্বর, রিমাইন্ডার, পানি ও বাড়িতে ফোনের হিসাব, ধার-দেনা আর ব্যক্তিগত বাজেট।",
+        "লোকেশন: শুধু তখনই, যখন আপনি নিজে অসুস্থ/SOS বার্তায় লোকেশন দেন বা নিজের বিজ্ঞাপনে ম্যাপে পিন বসান। আমরা আপনার অবস্থান পেছন থেকে ট্র্যাক করি না।",
       ],
     },
     {
@@ -35,7 +36,10 @@ const privacyBn: LegalDoc = {
         "মেস ম্যানেজার: উপরের সব, সাথে আপনার ওয়ালেট লেনদেন, মিল অর্ডার ও টাকা জমার অনুরোধ — যাতে হিসাব মিলিয়ে নিতে পারেন।",
         "অন্য মেস: কিছুই না। প্রতিটি মেসের তথ্য ডাটাবেস স্তরে (Row Level Security) আলাদা করা।",
         "কেয়ার তথ্য (মুড, স্বাস্থ্য, রিমাইন্ডার, ধার, চেক-ইন): শুধু আপনি। অসুস্থ বা SOS বার্তা কেবল তারাই দেখেন যাদের কাছে আপনি পাঠান। ম্যানেজার বা প্ল্যাটফর্ম অ্যাডমিনও এগুলো দেখতে পারেন না।",
-        "সবাই (সাইন-ইন করা ব্যবহারকারী): আপনি যে বিজ্ঞাপন, বেচাকেনা বা সার্ভিস পোস্ট প্রকাশ করেন।",
+        "মেসের অভিযোগ, ভোট, নোটিশ আর দায়িত্বের রোস্টার মেসের সবাই দেখতে পান।",
+        "সাইন-ইন করা অন্য ব্যবহারকারীরা: আপনি যা প্রকাশ করেন (বাসার বিজ্ঞাপন ও তার ফোন নম্বর, বেচাকেনা, সার্ভিস, ইভেন্ট, টিউশন পোস্ট, রিভিউ)। এসব জায়গায় তারা আপনার পুরো প্রোফাইল না দেখে ছোট নাম দেখেন (যেমন “রাফি আ.”)।",
+        "রুমমেট ম্যাচ: একই লিঙ্গের যারা রুমমেট খুঁজছেন তারা আপনার রুমমেট প্রোফাইল দেখেন; ফোন নম্বর কেবল আপনি চালু করলে।",
+        "প্ল্যাটফর্ম অ্যাডমিন (যারা MessMate BD চালান): সাপোর্ট ও অপব্যবহার ঠেকাতে অ্যাকাউন্টের মূল তথ্য (নাম, ইমেইল, ফোন), মেসের নাম ও সদস্যপদ, আপনার পাঠানো ফিডব্যাক আর টাকা ও সদস্যপদ পরিবর্তনের কার্যক্রম লগ দেখতে পারেন। কেয়ার তথ্য দেখতে পারেন না।",
       ],
     },
     {
@@ -54,7 +58,7 @@ const privacyBn: LegalDoc = {
     {
       heading: "আপনার অধিকার",
       body: [
-        "প্রোফাইল থেকে যেকোনো সময় নিজের তথ্য বদলাতে পারবেন।",
+        "সেটিংস → প্রোফাইল থেকে যেকোনো সময় নিজের তথ্য বদলাতে পারবেন।",
         "সেটিংস থেকে নিজের সব তথ্য ডাউনলোড (export) করতে পারবেন।",
         "অ্যাকাউন্ট মুছে ফেললে আপনার ব্যক্তিগত তথ্য, কেয়ার তথ্য, পোস্ট ও যোগাযোগ মুছে যায়। তবে মেসের টাকার হিসাব (লেনদেন ও মাসিক স্টেটমেন্ট) নাম ছাড়া রেখে দেওয়া হয়, কারণ মেসের বাকি সদস্যদের হিসাব মেলাতে সেটা দরকার।",
       ],
@@ -87,8 +91,9 @@ const privacyEn: LegalDoc = {
       body: [
         "Account: name, email, password (encrypted — we can't read it), and optionally a mobile number and profile photo.",
         "Mess records: which mess you belong to, your room, meal orders, deposit requests (amount, bKash/Nagad/Rocket TrxID, sender number), bills, bazar expenses and monthly statements.",
-        "Things you add: complaints, notices, votes, housing listings, marketplace posts, reviews and photos.",
-        "Care features (only if you use them): mood check-ins, sick/SOS messages, emergency contacts, reminders, loan records and a personal budget. Location is only taken when you send an SOS yourself.",
+        "Things you add: complaints, notices, votes, housing listings (with photos and a map pin you place), a roommate profile (budget, habits, preferred areas), marketplace posts, service suggestions, reviews, events and tuition posts.",
+        "Care features (only if you use them): mood check-ins, sick/SOS messages, reached-home check-ins, emergency contacts, reminders, water and call-home logs, loan records and a personal budget.",
+        "Location: only when you add it yourself to a sick/SOS alert or place a pin on your own listing. We never track your location in the background.",
       ],
     },
     {
@@ -105,7 +110,10 @@ const privacyEn: LegalDoc = {
         "Your mess manager: all of the above plus your wallet transactions, meal orders and deposit requests, so they can keep the accounts straight.",
         "Other messes: nothing. Each mess is isolated at the database level (Row Level Security).",
         "Care data (mood, health, reminders, loans, check-ins): only you. Sick and SOS messages are seen only by the people you send them to. Managers and platform admins cannot read them.",
-        "Everyone signed in: listings, marketplace items and services you choose to publish.",
+        "Mess complaints, polls, notices and the duty roster are visible to everyone in your mess.",
+        "Other signed-in users: what you choose to publish (listings and their contact number, marketplace items, services, events, tuition posts, reviews). There they see a short name such as “Rafi A.”, not your full profile.",
+        "Roommate matching: people of the same gender who are also looking see your roommate profile; your phone number only if you turn it on.",
+        "Platform admins (the people running MessMate BD): for support and abuse prevention they can see account basics (name, email, phone), mess names and membership, feedback you send, and an activity log of money and membership changes. They cannot see Care data.",
       ],
     },
     {
@@ -124,7 +132,7 @@ const privacyEn: LegalDoc = {
     {
       heading: "Your rights",
       body: [
-        "Edit your information from your profile at any time.",
+        "Edit your information any time under Settings → Profile.",
         "Download (export) all of your data from Settings.",
         "Deleting your account removes your personal data, Care data, posts and contacts. Your mess money records (transactions and monthly statements) are kept without your name, because the rest of the mess needs them to balance.",
       ],
