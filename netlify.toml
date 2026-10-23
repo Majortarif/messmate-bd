@@ -1,4 +1,5 @@
 # Netlify detects Next.js and uses its OpenNext-based runtime automatically.
+# Environment variables are set in the Netlify UI, never here: see docs/DEPLOYMENT.md.
 [build]
   command = "npm run build"
   publish = ".next"

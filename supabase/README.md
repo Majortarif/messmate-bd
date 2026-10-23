@@ -29,6 +29,7 @@ storage buckets, scheduled jobs, demo seed and the SQL test suites.
 | `setup.sql` | **generated** bundle of every migration except 0013 (cron), for one paste |
 | `seed.sql` | optional demo data (2 messes, 17 users, 60 days of history) |
 | `remove_demo.sql` | deletes all demo data |
+| `email-templates/` | token-hash "Confirm signup" and "Reset password" emails (Bangla + English) |
 | `tests/rls_isolation.sql` | proves messes are isolated (125 checks) |
 | `tests/functional.sql` | business-rule checks (147 checks) |
 | `tests/pglite/` | runs all of the above locally in PGlite |
@@ -56,8 +57,8 @@ storage buckets, scheduled jobs, demo seed and the SQL test suites.
 migration files that are newer than your last run, one at a time and in order (for
 example `0014` → `0019`). Each file is safe to run once.
 
-Auth settings (Google login, Gmail SMTP for confirmation and reset emails) are
-covered in the Phase 8 deployment guide.
+Auth settings (redirect URLs, Gmail SMTP, the email templates and Google login) are in
+the [deployment guide](../docs/DEPLOYMENT.md#1-create-the-supabase-project).
 
 ## Run everything locally (no Supabase account needed)
 

@@ -4,7 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { safeNext } from "@/lib/validations/auth";
 
 /**
- * Token-hash links (custom email templates, see the deployment guide). Unlike the
+ * Token-hash links (supabase/email-templates, see docs/DEPLOYMENT.md). Unlike the
  * PKCE callback these also work when the email is opened on another device.
  *   {{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&type=recovery&next=/reset-password
  */
@@ -18,9 +18,11 @@ export async function GET(request: NextRequest) {
 
   if (tokenHash && type) {
     const supabase = await createClient();
-    const { error } = await supabase.auth.verifyOtp({ type, token_hash: tokenHash });
+    const { data, error } = await supabase.auth.verifyOtp({ type, token_hash: tokenHash });
     if (!error) {
-      return NextResponse.redirect(`${base}${next}`);
+      // Email templates can't tell the language, so people who signed up in English go to /en.
+      const english = data.user?.user_metadata?.locale === "en" && next !== "/en" && !next.startsWith("/en/");
+      return NextResponse.redirect(`${base}${english ? `/en${next}` : next}`);
     }
   }
 
