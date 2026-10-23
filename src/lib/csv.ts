@@ -16,3 +16,7 @@ export function csvResponse(body: string, filename: string) {
     },
   });
 }
+
+/** Datasets a manager can download from /api/export/mess. */
+export const MESS_EXPORTS = ["members", "ledger", "deposits", "expenses", "bills", "meals"] as const;
+export type MessExport = (typeof MESS_EXPORTS)[number];

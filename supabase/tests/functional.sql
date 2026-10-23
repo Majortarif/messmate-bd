@@ -260,6 +260,24 @@ select tests.check(public.post_bill(tests.id('elecU'), jsonb_build_array(jsonb_b
 select tests.throws(format('select public.post_bill(%L)', tests.id('wifiU')), 'bill_not_draft', 'a bill is posted only once');
 select tests.throws(format('update public.bills set total_amount = 1 where id = %L', tests.id('wifiU')), 'bill_not_draft', 'posted bills are locked');
 
+-- open-month report: meal cost is an estimate until the month closes
+select tests.check((public.get_mess_report(tests.prev()) ->> 'closed')::boolean = false
+                   and (public.get_mess_report(tests.prev()) ->> 'estimated')::boolean, 'open month report is an estimate');
+select tests.check((public.get_mess_report(tests.prev()) ->> 'meal_rate')::numeric = 100, 'report estimates the meal rate so far');
+select tests.check((select (m ->> 'est_meal_cost')::numeric from jsonb_array_elements(public.get_mess_report(tests.prev()) -> 'members') m
+                     where (m ->> 'user_id')::uuid = tests.id('U1')) = 500, 'report estimates U1 meal cost');
+select tests.check(not exists (
+                     select 1 from jsonb_array_elements(public.get_mess_report(tests.prev()) -> 'members') m
+                      where (m ->> 'closing')::numeric <> (select coalesce(sum(l.amount), 0) from public.ledger_entries l
+                                                          where l.mess_id = tests.id('messU') and l.user_id = (m ->> 'user_id')::uuid
+                                                            and l.period_month <= tests.prev())),
+                   'open report balances match the ledger');
+select tests.check(exists (select 1 from jsonb_array_elements(public.get_activity_log(null, 'spending')) e
+                            where e ->> 'table' = 'bills' and e ->> 'action' = 'UPDATE'
+                              and e -> 'changes' -> 'status' ->> 1 = 'posted'), 'activity log records the bill being posted');
+select tests.check(exists (select 1 from jsonb_array_elements(public.get_activity_log(null, 'spending')) e
+                            where e ->> 'table' = 'expenses' and e ->> 'subject_name' is not null), 'activity log names who paid an expense');
+
 select tests.login('U1');
 select tests.throws(format('select public.close_month(%L, %L)', tests.id('messU'), tests.prev()), 'not_manager', 'member cannot close the month');
 select tests.login('UM');
@@ -289,6 +307,14 @@ select tests.throws(format($q$insert into public.expenses (mess_id, amount, expe
 select tests.throws(format($q$update public.menus set items = 'x' where id = %L$q$, tests.id('um0lunch')), 'month_closed', 'closed month menus are frozen');
 select tests.check((public.get_manager_dashboard(tests.prev()) ->> 'month_closed')::boolean, 'manager dashboard shows the closed month');
 select tests.check((public.get_manager_dashboard(tests.prev()) -> 'totals' ->> 'meal_rate')::numeric = 100, 'dashboard uses the closing rate');
+select tests.check((public.get_mess_report(tests.prev()) ->> 'closed')::boolean, 'report reads the closed month');
+select tests.check(not exists (
+                     select 1 from jsonb_array_elements(public.get_mess_report(tests.prev()) -> 'members') m
+                      join public.member_statements ms on ms.user_id = (m ->> 'user_id')::uuid and ms.mess_id = tests.id('messU')
+                     where (m ->> 'closing')::numeric <> ms.closing_balance or (m ->> 'meal_cost')::numeric <> ms.meal_cost),
+                   'closed report matches the frozen statements');
+select tests.check(exists (select 1 from jsonb_array_elements(public.get_activity_log(null, 'spending')) e
+                            where e ->> 'table' = 'monthly_closings'), 'activity log records the month closing');
 
 select tests.login('U1');
 select tests.check((public.get_member_dashboard(tests.prev()) -> 'meals' ->> 'my_meal_cost')::numeric = 500, 'member dashboard shows the final meal cost');

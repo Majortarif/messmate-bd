@@ -227,6 +227,9 @@ select tests.throws(format($q$insert into public.complaints (mess_id, created_by
 select tests.throws(format('select public.close_month(%L, %L)', tests.id('messA'), private.month_start(private.dhaka_today()) - 31),
                     'not_manager', 'member cannot close month');
 select tests.throws('select public.get_manager_dashboard()', 'not_manager', 'member cannot open manager dashboard');
+select tests.throws('select public.get_activity_log()', 'not_manager', 'member cannot read the activity log');
+select tests.throws('select public.get_mess_report()', 'not_manager', 'member cannot open the mess report');
+select tests.throws('select public.admin_list_users()', 'not_super_admin', 'member cannot list platform users');
 select tests.throws('select public.get_platform_stats()', 'not_super_admin', 'member cannot open platform stats');
 select tests.throws(format($q$update public.profiles set platform_role = 'super_admin' where id = %L$q$, tests.id('A2')),
                     'forbidden_role_change', 'member cannot make self super admin');
@@ -265,6 +268,17 @@ select tests.throws(format('select public.regenerate_invite_code(%L)', tests.id(
 select tests.throws(format('select public.close_month(%L, %L)', tests.id('messB'), private.month_start(private.dhaka_today()) - 31),
                     'not_manager', 'manager A cannot close mess B month');
 select tests.throws('select public.get_platform_stats()', 'not_super_admin', 'manager is not platform admin');
+select tests.check((select bool_and((e ->> 'mess_id')::uuid = tests.id('messA'))
+                      from jsonb_array_elements(public.get_activity_log(null, null, null, 100)) e), 'manager activity log holds only mess A');
+select tests.check(jsonb_array_length(public.get_activity_log(null, 'money')) > 0, 'manager filters activity by money');
+select tests.throws(format('select public.get_activity_log(%L)', tests.id('messB')), 'not_manager', 'manager A cannot read mess B activity');
+select tests.throws($q$select public.get_activity_log(null, 'everything')$q$, 'invalid_input', 'unknown activity category rejected');
+select tests.check((select count(*) from jsonb_array_elements(public.get_mess_report() -> 'members') m
+                     where m ->> 'full_name' like 'Mess B%') = 0, 'mess report never lists mess B people');
+select tests.check((select count(*) from jsonb_array_elements(public.get_mess_report() -> 'members') m
+                     where m ->> 'full_name' = 'Mess A member') = 1, 'mess report lists own members');
+select tests.throws('select public.admin_list_messes()', 'not_super_admin', 'manager cannot list all messes');
+select tests.throws(format('select public.admin_set_mess_active(%L, false)', tests.id('messB')), 'not_super_admin', 'manager cannot switch off a mess');
 
 -- ------------------------------------------------------ manager of mess B --
 select tests.login('B1');
@@ -299,6 +313,8 @@ select tests.throws('select count(*) from public.profiles', 'permission denied',
 select tests.throws('select count(*) from public.messes', 'permission denied', 'visitor cannot read messes');
 select tests.throws('select count(*) from public.ledger_entries', 'permission denied', 'visitor cannot read ledger');
 select tests.throws('select public.get_member_dashboard()', 'permission denied', 'visitor cannot call member RPCs');
+select tests.throws('select public.get_activity_log()', 'permission denied', 'visitor cannot call activity log');
+select tests.throws('select public.admin_list_messes()', 'permission denied', 'visitor cannot call admin RPCs');
 
 -- --------------------------------------------------------- super admin (S) --
 select tests.login('S');
@@ -306,9 +322,23 @@ select tests.check((select count(*) from public.messes where id in (tests.id('me
 select tests.check((select count(*) from public.ledger_entries where mess_id = tests.id('messA')) = 0, 'admin cannot read mess money');
 select tests.check((select count(*) from public.mood_checkins) = 0, 'admin cannot read mood data');
 select tests.check((public.get_platform_stats() ->> 'messes')::int >= 2, 'admin reads platform stats');
+select tests.check(jsonb_array_length(public.get_activity_log(tests.id('messB'))) > 0, 'admin reads any mess activity');
+select tests.check((public.admin_list_messes('RLS Test Mess') ->> 'total')::int = 2, 'admin searches messes');
+select tests.check((public.admin_list_messes('RLS Test Mess_') ->> 'total')::int = 0, 'mess search treats _ literally');
+select tests.check((public.admin_list_users('Mess A', null) ->> 'total')::int = 2, 'admin searches users');
+select tests.check((public.admin_list_users(null, 'super_admin') -> 'rows' -> 0 ->> 'full_name') is not null, 'admin filters users by role');
+select public.admin_set_mess_active(tests.id('messB'), false, 'test');
+select tests.check((select not is_active and not invite_enabled from public.messes where id = tests.id('messB')), 'admin switches a mess off');
+select tests.check((select count(*) from public.notifications where user_id = tests.id('B1') and type = 'mess_status') = 0,
+                   'admin cannot read the manager''s notifications');
+select public.admin_set_mess_active(tests.id('messB'), true);
+select tests.check((select is_active from public.messes where id = tests.id('messB')), 'admin switches a mess back on');
+select tests.throws('select public.get_mess_report()', 'not_manager', 'admin without a mess has no mess report');
 
 -- ----------------------------------------------------- structural checks --
 select tests.logout();
+select tests.check((select count(*) from public.notifications where user_id = tests.id('B1') and type = 'mess_status') = 2,
+                   'mess B manager is told when the mess is switched off and on');
 select tests.check((select count(*) from pg_tables where schemaname = 'public' and not rowsecurity) = 0,
                    'every public table has RLS enabled');
 select tests.check((select count(*) from pg_proc p join pg_namespace n on n.oid = p.pronamespace

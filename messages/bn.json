@@ -378,7 +378,11 @@
     "file_too_large": "ছবিটি অনেক বড় (সর্বোচ্চ ১২ MB)।",
     "invalid_file": "শুধু ছবি (JPG, PNG, WebP) দেওয়া যাবে।",
     "invalid_input": "কিছু তথ্য সঠিক নয়। ঘরগুলো আবার দেখুন।",
-    "duplicate": "এটি আগেই আছে।"
+    "duplicate": "এটি আগেই আছে।",
+    "not_super_admin": "এটি শুধু প্ল্যাটফর্ম অ্যাডমিন করতে পারেন।",
+    "cannot_change_own_role": "নিজের ভূমিকা নিজে বদলানো যায় না।",
+    "forbidden_role_change": "এই ভূমিকা বদলানোর অনুমতি নেই।",
+    "invalid_kind": "এই ধরনের কনটেন্ট চেনা যায়নি।"
   },
   "onboarding": {
     "metaTitle": "শুরু করুন",
@@ -483,14 +487,22 @@
     "market": "বেচাকেনা",
     "services": "সার্ভিস",
     "members": "সদস্য",
-    "admin": "অ্যাডমিন",
+    "admin": "ওভারভিউ",
     "more": "আরও",
     "menu": "মেনু",
     "approvals": "অনুমোদন",
     "expenses": "বাজার ও খরচ",
     "bills": "বিল",
     "closing": "মাসের হিসাব",
-    "messSettings": "মেস সেটিংস"
+    "messSettings": "মেস সেটিংস",
+    "overview": "মেস ওভারভিউ",
+    "reports": "রিপোর্ট ও ব্যাকআপ",
+    "activity": "কার্যক্রম লগ",
+    "adminMesses": "সব মেস",
+    "adminUsers": "ব্যবহারকারী",
+    "moderation": "মডারেশন",
+    "feedback": "ফিডব্যাক",
+    "platformActivity": "কার্যক্রম লগ"
   },
   "shell": {
     "yourMess": "আপনার মেস",
@@ -733,7 +745,8 @@
         "bkash": "বিকাশ",
         "nagad": "নগদ",
         "rocket": "রকেট",
-        "cash": "হাতে নগদ"
+        "cash": "হাতে নগদ",
+        "bank": "ব্যাংক"
       },
       "sendTo": "{method} নম্বর:",
       "copyNumber": "নম্বর কপি করুন",
@@ -862,7 +875,40 @@
     "mealCost": "মিল খরচ",
     "bills": "বিল",
     "other": "অন্যান্য",
-    "closing": "শেষ ব্যালেন্স"
+    "closing": "শেষ ব্যালেন্স",
+    "email": "ইমেইল",
+    "room": "রুম",
+    "seat": "সিট",
+    "role": "ভূমিকা",
+    "status": "অবস্থা",
+    "joined": "যোগ দিয়েছেন",
+    "left": "ছেড়েছেন",
+    "balance": "ব্যালেন্স",
+    "month": "মাস",
+    "method": "মাধ্যম",
+    "trxId": "TrxID",
+    "sender": "পাঠানোর নম্বর",
+    "paidAt": "পাঠানোর সময়",
+    "reviewedAt": "দেখা হয়েছে",
+    "note": "নোট",
+    "category": "ধরন",
+    "paidFrom": "কার টাকায়",
+    "paidBy": "কে দিয়েছেন",
+    "receipt": "রসিদ",
+    "yes": "আছে",
+    "no": "নেই",
+    "billType": "বিলের ধরন",
+    "total": "মোট",
+    "split": "ভাগ",
+    "dueDate": "শেষ তারিখ",
+    "postedAt": "পোস্ট হয়েছে",
+    "shares": "সদস্যদের ভাগ",
+    "slot": "বেলা",
+    "guests": "অতিথি",
+    "price": "দাম",
+    "charged": "কাটা হয়েছে",
+    "ordered": "অর্ডার",
+    "cancelled": "বাতিল"
   },
   "manage": {
     "menu": {
@@ -1190,6 +1236,436 @@
       "rent": "মাসিক ভাড়া (৳)",
       "rentHint": "রুম অনুযায়ী ভাড়া ভাগে ব্যবহার হবে।",
       "save": "সেভ করুন"
+    },
+    "overview": {
+      "title": "মেস ওভারভিউ",
+      "subtitle": "{mess} — মিল, টাকা আর সদস্যদের এক নজরে হিসাব।",
+      "queue": {
+        "label": "আপনার জন্য অপেক্ষায়",
+        "deposits": "{count}টি টাকা জমার অনুরোধ",
+        "requests": "{count}টি যোগদানের অনুরোধ",
+        "drafts": "{count}টি খসড়া বিল"
+      },
+      "rate": {
+        "final": "চূড়ান্ত রেট",
+        "estimate": "এখন পর্যন্ত আনুমানিক",
+        "fixed": "ফিক্সড দাম মোড (তথ্যের জন্য)"
+      },
+      "kpi": {
+        "members": "সক্রিয় সদস্য",
+        "inactive": "{count} জন নিষ্ক্রিয়",
+        "allActive": "সবাই সক্রিয়",
+        "meals": "এ মাসের মিল",
+        "mealCost": "বাজার + গ্যাস {amount}",
+        "rate": "মিল রেট",
+        "collected": "এ মাসে জমা",
+        "pendingAmount": "{amount} অনুমোদনের অপেক্ষায়",
+        "noPending": "কোনো অনুরোধ বাকি নেই",
+        "due": "মোট বাকি",
+        "dueMembers": "{count} জনের কাছে পাওনা",
+        "noDue": "কারো কাছে বাকি নেই"
+      },
+      "charts": {
+        "daily": "প্রতিদিনের মিল",
+        "dailyBody": "কোন দিন কত বেলা খাওয়া হয়েছে (অতিথি সহ)।",
+        "money": "জমা বনাম খরচ",
+        "moneyBody": "গত ছয় মাসে সদস্যদের জমা আর বাজার-বিলের খরচ।",
+        "expenses": "খরচের ভাগ",
+        "expensesBody": "এ মাসে মোট খরচ {total}",
+        "amount": "টাকা",
+        "noExpenses": "এ মাসে এখনো খরচ নেই",
+        "noExpensesBody": "বাজার বা অন্য খরচ যোগ করলে এখানে ভাগ দেখাবে।",
+        "balances": "সদস্যদের ব্যালেন্স",
+        "balancesBody": "মোট বাকি {due} · মোট অগ্রিম {advance}",
+        "noMembers": "এখনো কোনো সদস্য নেই"
+      },
+      "defaulters": {
+        "title": "সবচেয়ে বেশি বাকি",
+        "body": "যাদের ব্যালেন্স মাইনাসে — ফোন করে মনে করিয়ে দিন।",
+        "none": "কারো কাছে বাকি নেই",
+        "noneBody": "সবার ব্যালেন্স শূন্য বা অগ্রিমে আছে।",
+        "room": "রুম {room}",
+        "noRoom": "রুম নেই",
+        "call": "{name} কে ফোন করুন",
+        "fullReport": "পুরো মাসের রিপোর্ট"
+      }
+    },
+    "reports": {
+      "title": "রিপোর্ট ও ব্যাকআপ",
+      "subtitle": "মাসের সদস্যভিত্তিক হিসাব আর মেসের সব রেকর্ডের CSV ব্যাকআপ।",
+      "closedNote": "{month} এর হিসাব {date} তারিখে বন্ধ হয়েছে — নিচের সংখ্যাগুলো চূড়ান্ত।",
+      "estimateNote": "{month} এখনো চলছে। মিল খরচ এখন পর্যন্ত বাজারের হিসাবে আনুমানিক; মাস বন্ধ হলে চূড়ান্ত হবে।",
+      "openNote": "{month} এখনো চলছে। মাস বন্ধ হলে সংখ্যাগুলো চূড়ান্ত হবে।",
+      "totals": {
+        "meals": "মোট মিল",
+        "bazar": "বাজার + গ্যাস",
+        "rate": "মিল রেট",
+        "rateSoFar": "মিল রেট (এখন পর্যন্ত)",
+        "fixed": "ফিক্সড দাম",
+        "shared": "শেয়ার্ড খরচ",
+        "bills": "পোস্ট করা বিল",
+        "deposits": "জমা"
+      },
+      "table": {
+        "title": "{month} — সদস্যভিত্তিক হিসাব",
+        "body": "আগের ব্যালেন্স + জমা − মিল − বিল ± অন্যান্য = মাস শেষের ব্যালেন্স।",
+        "empty": "এই মাসে কোনো সদস্য ছিলেন না",
+        "member": "সদস্য",
+        "opening": "আগের",
+        "deposits": "জমা",
+        "meals": "মিল",
+        "mealCost": "মিল খরচ",
+        "mealCostEst": "মিল খরচ (আনু.)",
+        "bills": "বিল",
+        "other": "অন্যান্য",
+        "closing": "শেষ ব্যালেন্স",
+        "closingEst": "শেষ ব্যালেন্স (আনু.)",
+        "left": "চলে গেছেন",
+        "room": "রুম {room}",
+        "noRoom": "রুম নেই",
+        "total": "মোট"
+      },
+      "statementsCsv": "স্টেটমেন্ট CSV",
+      "downloads": {
+        "title": "ডেটা ব্যাকআপ (CSV)",
+        "body": "এক্সেল বা গুগল শিটে খোলা যায়। মাসেরটা বা শুরু থেকে সব নামাতে পারেন।",
+        "note": "ফাইলে সদস্যদের ফোন নম্বর ও টাকার হিসাব থাকে — নিরাপদে রাখুন, কাউকে শেয়ার করবেন না।",
+        "monthAria": "{what} — {month} এর CSV",
+        "allAria": "{what} — সব সময়ের CSV",
+        "all": "সব",
+        "now": "এখনকার",
+        "members": {
+          "title": "সদস্য তালিকা",
+          "body": "নাম, ফোন, রুম, অবস্থা আর বর্তমান ব্যালেন্স"
+        },
+        "ledger": {
+          "title": "লেনদেন (লেজার)",
+          "body": "প্রতিটি জমা, খরচ, বিল আর সমন্বয়"
+        },
+        "deposits": {
+          "title": "টাকা জমার অনুরোধ",
+          "body": "TrxID, মাধ্যম আর অনুমোদনের অবস্থা"
+        },
+        "expenses": {
+          "title": "বাজার ও খরচ",
+          "body": "তারিখ, ধরন, টাকা আর কে দিয়েছেন"
+        },
+        "bills": {
+          "title": "বিল",
+          "body": "প্রতিটি বিল আর সদস্যদের ভাগ"
+        },
+        "meals": {
+          "title": "মিল অর্ডার",
+          "body": "কে কোন দিন কোন বেলা খেয়েছেন, অতিথি সহ"
+        }
+      }
+    }
+  },
+  "charts": {
+    "view": "দেখার ধরন",
+    "chart": "চার্ট",
+    "table": "টেবিল",
+    "date": "তারিখ",
+    "total": "মোট",
+    "collected": "জমা হয়েছে",
+    "spent": "খরচ (বাজার + বিল)",
+    "month": "মাস",
+    "item": "ধরন",
+    "balance": "ব্যালেন্স",
+    "advance": "অগ্রিম",
+    "due": "বাকি",
+    "member": "সদস্য"
+  },
+  "platformRoles": {
+    "user": "সাধারণ ব্যবহারকারী",
+    "landlord": "বাড়িওয়ালা",
+    "service_provider": "সেবাদাতা",
+    "super_admin": "প্ল্যাটফর্ম অ্যাডমিন"
+  },
+  "memberStatus": {
+    "pending": "অপেক্ষায়",
+    "active": "সক্রিয়",
+    "inactive": "নিষ্ক্রিয়",
+    "rejected": "বাতিল",
+    "left": "মেস ছেড়েছেন"
+  },
+  "moderationStatus": {
+    "pending": "অপেক্ষায়",
+    "approved": "প্রকাশিত",
+    "rejected": "বাতিল",
+    "archived": "আর্কাইভ"
+  },
+  "listingTypes": {
+    "seat": "সিট",
+    "room": "রুম",
+    "flat": "ফ্ল্যাট",
+    "sublet": "সাবলেট"
+  },
+  "serviceCategories": {
+    "bua_cook": "বুয়া / রাঁধুনি",
+    "tiffin": "টিফিন",
+    "electrician": "ইলেকট্রিশিয়ান",
+    "plumber": "প্লাম্বার",
+    "gas_cylinder": "গ্যাস সিলিন্ডার",
+    "internet": "ইন্টারনেট",
+    "laundry": "লন্ড্রি",
+    "tutor": "টিউটর",
+    "moving_van": "বাসা বদলের গাড়ি",
+    "doctor": "ডাক্তার",
+    "other": "অন্যান্য"
+  },
+  "eventTypes": {
+    "iftar": "ইফতার",
+    "eid": "ঈদ",
+    "puja": "পূজা",
+    "meetup": "আড্ডা",
+    "sports": "খেলা",
+    "study": "পড়াশোনা",
+    "other": "অন্যান্য"
+  },
+  "jobTypes": {
+    "tuition": "টিউশন",
+    "part_time": "পার্ট-টাইম",
+    "freelance": "ফ্রিল্যান্স",
+    "internship": "ইন্টার্নশিপ"
+  },
+  "marketCategories": {
+    "furniture": "আসবাব",
+    "bed": "খাট / তোশক",
+    "fan": "ফ্যান",
+    "electronics": "ইলেকট্রনিক্স",
+    "books": "বই",
+    "kitchen": "রান্নাঘরের জিনিস",
+    "clothing": "কাপড়",
+    "other": "অন্যান্য"
+  },
+  "itemConditions": {
+    "new": "নতুন",
+    "like_new": "প্রায় নতুন",
+    "good": "ভালো",
+    "fair": "চলনসই"
+  },
+  "activity": {
+    "title": "কার্যক্রম লগ",
+    "subtitle": "মেসে কে কখন কী বদলেছেন — টাকা, সদস্য, খরচ আর সেটিংস। কোনো কিছু মুছে ফেলা যায় না।",
+    "platformTitle": "প্ল্যাটফর্ম কার্যক্রম লগ",
+    "platformSubtitle": "সব মেসের টাকা, সদস্য আর মডারেশনের পরিবর্তন।",
+    "onlyMess": "শুধু {name}",
+    "clearMess": "সব মেস দেখুন",
+    "system": "সিস্টেম",
+    "someone": "একজন",
+    "empty": "এখনো কোনো কার্যক্রম নেই",
+    "emptyBody": "টাকা, সদস্য বা খরচে কিছু বদলালে এখানে লেখা থাকবে।",
+    "loadMore": "আরও আগের দেখুন",
+    "end": "এর আগে আর কিছু নেই",
+    "details": "বিস্তারিত",
+    "filters": {
+      "label": "কার্যক্রম ফিল্টার",
+      "all": "সব",
+      "money": "টাকা",
+      "members": "সদস্য",
+      "spending": "খরচ ও বিল",
+      "settings": "সেটিংস",
+      "moderation": "মডারেশন"
+    },
+    "events": {
+      "ledger": "{actor} লেজারে {subject}-এর নামে {type} লিখেছেন: {amount}",
+      "depositRequested": "{subject} {method} দিয়ে {amount} জমার অনুরোধ করেছেন",
+      "depositApproved": "{actor} {subject}-এর {amount} জমা অনুমোদন করেছেন",
+      "depositRejected": "{actor} {subject}-এর {amount} জমার অনুরোধ বাতিল করেছেন",
+      "depositUpdated": "{actor} {subject}-এর জমার অনুরোধ বদলেছেন",
+      "memberRequested": "{subject} মেসে যোগ দিতে অনুরোধ করেছেন",
+      "memberJoined": "{subject} মেসে যোগ দিয়েছেন",
+      "memberDeleted": "{subject}-এর সদস্যপদের রেকর্ড মুছে ফেলা হয়েছে",
+      "memberApproved": "{actor} {subject}-এর যোগদানের অনুরোধ অনুমোদন করেছেন",
+      "memberRejected": "{actor} {subject}-এর যোগদানের অনুরোধ বাতিল করেছেন",
+      "memberPaused": "{actor} {subject} কে সাময়িক নিষ্ক্রিয় করেছেন",
+      "memberResumed": "{actor} {subject} কে আবার সক্রিয় করেছেন",
+      "memberLeft": "{subject} মেস ছেড়েছেন",
+      "memberRemoved": "{actor} {subject} কে মেস থেকে সরিয়েছেন",
+      "memberPromoted": "{actor} {subject} কে ম্যানেজার করেছেন",
+      "memberDemoted": "{actor} {subject} কে ম্যানেজার থেকে সরিয়েছেন",
+      "memberRoom": "{actor} {subject}-এর রুম বদলেছেন",
+      "memberUpdated": "{actor} {subject}-এর সদস্যপদের তথ্য বদলেছেন",
+      "expenseAdded": "{actor} {category} খরচ যোগ করেছেন: {amount}",
+      "expenseUpdated": "{actor} একটি {category} খরচ বদলেছেন ({amount})",
+      "expenseDeleted": "{actor} {amount} এর একটি {category} খরচ মুছেছেন",
+      "billCreated": "{actor} {type} এর খসড়া বিল করেছেন: {amount}",
+      "billPosted": "{actor} {type} বিল পোস্ট করেছেন ({amount})",
+      "billVoided": "{actor} {type} বিল বাতিল করেছেন ({amount})",
+      "billUpdated": "{actor} {type} বিল বদলেছেন ({amount})",
+      "billDeleted": "{actor} {type} এর খসড়া বিল মুছেছেন ({amount})",
+      "monthClosed": "{actor} {month} এর হিসাব বন্ধ করেছেন · মিল রেট {rate}",
+      "settingsCreated": "মেসের সেটিংস তৈরি হয়েছে",
+      "settingsUpdated": "{actor} মেসের সেটিংস বদলেছেন",
+      "messCreated": "{actor} মেসটি তৈরি করেছেন",
+      "messActivated": "{actor} মেসটি আবার চালু করেছেন",
+      "messDeactivated": "{actor} মেসটি বন্ধ করেছেন",
+      "messInvite": "{actor} নতুন ইনভাইট কোড বানিয়েছেন",
+      "inviteOn": "{actor} ইনভাইট লিংক চালু করেছেন",
+      "inviteOff": "{actor} ইনভাইট লিংক বন্ধ করেছেন",
+      "messUpdated": "{actor} মেসের তথ্য বদলেছেন",
+      "listingStatus": "{actor} “{title}” লিস্টিং {status} করেছেন",
+      "other": "{actor} একটি পরিবর্তন করেছেন"
+    }
+  },
+  "admin": {
+    "search": "খুঁজুন",
+    "range": "{total} টির মধ্যে {from}–{to}",
+    "prev": "আগের পাতা",
+    "next": "পরের পাতা",
+    "overview": {
+      "title": "প্ল্যাটফর্ম ওভারভিউ",
+      "subtitle": "সব মেস, ব্যবহারকারী আর কমিউনিটির এক নজরে অবস্থা।",
+      "kpi": {
+        "users": "ব্যবহারকারী",
+        "signups": "গত ৩০ দিনে {count} জন নতুন",
+        "messes": "সক্রিয় মেস",
+        "inactiveMesses": "{count}টি বন্ধ",
+        "members": "{count} জন সক্রিয় সদস্য",
+        "moderation": "মডারেশনের অপেক্ষায়",
+        "waiting": "দেখে অনুমোদন দিন",
+        "clear": "সব দেখা শেষ",
+        "feedback": "নতুন ফিডব্যাক",
+        "unread": "এখনো পড়া হয়নি"
+      },
+      "charts": {
+        "signups": "নতুন ব্যবহারকারী",
+        "signupsBody": "গত ৩০ দিনে {count} জন যোগ দিয়েছেন",
+        "newUsers": "নতুন ব্যবহারকারী",
+        "areas": "এলাকা অনুযায়ী মেস",
+        "areasBody": "সবচেয়ে বেশি সক্রিয় মেস যেসব এলাকায়",
+        "messCount": "মেস",
+        "noArea": "এলাকা দেওয়া নেই",
+        "noMesses": "এখনো কোনো মেস নেই"
+      },
+      "community": {
+        "title": "কমিউনিটি",
+        "listings": "প্রকাশিত বাসা/সিট",
+        "market": "বিক্রির জিনিস",
+        "jobs": "খোলা টিউশন/চাকরি",
+        "events": "আসন্ন ইভেন্ট"
+      },
+      "links": {
+        "moderation": "মডারেশন",
+        "moderationBody": "লিস্টিং, সেবা, রেসিপি আর ইভেন্ট অনুমোদন",
+        "activity": "কার্যক্রম লগ",
+        "activityBody": "সব মেসের টাকা ও সদস্যের পরিবর্তন"
+      }
+    },
+    "messes": {
+      "title": "সব মেস",
+      "subtitle": "প্ল্যাটফর্মে মোট {count}টি মেস",
+      "searchPlaceholder": "মেসের নাম, ঠিকানা বা ইনভাইট কোড",
+      "noMatch": "“{q}” নামে কোনো মেস পাওয়া যায়নি",
+      "empty": "এখনো কোনো মেস তৈরি হয়নি",
+      "inactive": "বন্ধ",
+      "inviteOff": "ইনভাইট বন্ধ",
+      "noAddress": "ঠিকানা দেওয়া নেই",
+      "created": "তৈরি {date}",
+      "lastActive": "শেষ কার্যক্রম {date}",
+      "manager": "ম্যানেজার",
+      "call": "{name} কে ফোন করুন",
+      "noManager": "কোনো সক্রিয় ম্যানেজার নেই",
+      "members": "সদস্য",
+      "pending": "+{count} অপেক্ষায়",
+      "activity": "লগ",
+      "activate": "চালু করুন",
+      "deactivate": "বন্ধ করুন",
+      "activated": "{name} আবার চালু হয়েছে",
+      "deactivated": "{name} বন্ধ করা হয়েছে",
+      "deactivateTitle": "{name} বন্ধ করবেন?",
+      "deactivateBody": "নতুন কেউ যোগ দিতে পারবে না, ইনভাইট লিংক বন্ধ হবে। পুরনো হিসাব থেকে যাবে। ম্যানেজার কারণসহ নোটিফিকেশন পাবেন।",
+      "reasonPlaceholder": "কারণ (ম্যানেজার দেখতে পাবেন)",
+      "reason": "কারণ",
+      "cancel": "থাক"
+    },
+    "users": {
+      "title": "ব্যবহারকারী",
+      "subtitle": "মোট {count} জন",
+      "searchPlaceholder": "নাম, ইমেইল বা ফোন",
+      "roleFilter": "ভূমিকা অনুযায়ী",
+      "allRoles": "সবাই",
+      "noMatch": "“{q}” এর সাথে কাউকে পাওয়া যায়নি",
+      "empty": "কোনো ব্যবহারকারী নেই",
+      "noName": "নাম নেই",
+      "you": "আপনি",
+      "deleted": "অ্যাকাউন্ট মুছে ফেলা",
+      "mess": "মেস",
+      "requested": "অনুরোধ করেছেন",
+      "noMess": "কোনো মেসে নেই",
+      "joined": "যোগ দিয়েছেন",
+      "roleFor": "{name} এর ভূমিকা",
+      "roleChanged": "{name} এখন {role}",
+      "grantAdminTitle": "{name} কে প্ল্যাটফর্ম অ্যাডমিন করবেন?",
+      "grantAdminBody": "তিনি সব মেস, ব্যবহারকারী, ফিডব্যাক আর কার্যক্রম লগ দেখতে ও বদলাতে পারবেন। শুধু বিশ্বস্ত মানুষকে দিন।",
+      "revokeAdminTitle": "{name} এর অ্যাডমিন ক্ষমতা সরাবেন?",
+      "revokeAdminBody": "তিনি আর প্ল্যাটফর্ম অ্যাডমিন পাতা দেখতে পারবেন না।",
+      "cancel": "থাক",
+      "confirm": "হ্যাঁ, বদলান"
+    },
+    "moderation": {
+      "title": "মডারেশন",
+      "subtitle": "কমিউনিটির পোস্ট প্রকাশের আগে দেখে নিন, আর ক্ষতিকর কিছু সরিয়ে দিন।",
+      "kinds": "কনটেন্টের ধরন",
+      "tabs": {
+        "listing": "বাসা/সিট",
+        "service": "সেবা",
+        "recipe": "রেসিপি",
+        "event": "ইভেন্ট",
+        "job": "টিউশন/চাকরি",
+        "market": "মার্কেট"
+      },
+      "preModerated": "এগুলো অনুমোদনের পরেই সবাই দেখতে পায়।",
+      "postModerated": "এগুলো সাথে সাথে প্রকাশ হয়; ভুয়া বা ক্ষতিকর কিছু থাকলে সরিয়ে দিন।",
+      "empty": "দেখার মতো কিছু নেই",
+      "emptyBody": "নতুন পোস্ট এলে এখানে দেখাবে।",
+      "postedBy": "{name} · {date}",
+      "unknown": "অজানা",
+      "rent": "ভাড়া {amount}",
+      "minutes": "{count} মিনিট",
+      "cost": "খরচ প্রায় {amount}",
+      "verify": "যাচাইকৃত চিহ্ন দিন",
+      "approve": "অনুমোদন",
+      "reject": "বাতিল",
+      "remove": "সরিয়ে দিন",
+      "rejectTitle": "“{title}” বাতিল করবেন?",
+      "removeTitle": "“{title}” সরিয়ে দেবেন?",
+      "reasonBody": "কারণ লিখলে পোস্টদাতা নোটিফিকেশনে দেখতে পাবেন।",
+      "reasonPlaceholder": "যেমন: ফোন নম্বর ভুল, বা ভুয়া মনে হচ্ছে",
+      "reason": "কারণ",
+      "cancel": "থাক",
+      "done": {
+        "approved": "“{title}” প্রকাশিত হয়েছে",
+        "rejected": "“{title}” বাতিল করা হয়েছে",
+        "removed": "“{title}” সরানো হয়েছে"
+      }
+    },
+    "feedback": {
+      "title": "ফিডব্যাক",
+      "subtitle": "ব্যবহারকারীদের মতামত, বাগ রিপোর্ট আর যোগাযোগ।",
+      "filter": "অবস্থা অনুযায়ী",
+      "statuses": {
+        "new": "নতুন",
+        "reviewing": "দেখা হচ্ছে",
+        "resolved": "সমাধান হয়েছে"
+      },
+      "types": {
+        "feedback": "মতামত",
+        "bug": "বাগ",
+        "contact": "যোগাযোগ",
+        "report": "রিপোর্ট"
+      },
+      "empty": "এখানে কিছু নেই",
+      "emptyBody": "নতুন ফিডব্যাক এলে এখানে দেখাবে।",
+      "noSubject": "বিষয় নেই",
+      "from": "পাঠিয়েছেন {name}",
+      "anonymous": "নাম নেই",
+      "status": "অবস্থা",
+      "note": "অ্যাডমিন নোট",
+      "notePlaceholder": "নিজের জন্য নোট (ব্যবহারকারী দেখবেন না)",
+      "save": "সেভ",
+      "saved": "সেভ হয়েছে"
     }
   }
 }

@@ -100,11 +100,17 @@ html.light {
   --coral-soft: #fde6e3;
   --sky: #2b78d6;
   --sky-soft: #e0edfc;
-  --chart-1: #14b88f;
+  /* Chart series, in this order (validated for colour-blind separation on
+     the card surface): 1 sky, 2 marigold, 3 mint. 4 = "due" pole of the
+     balance chart, opposite 1. Light marigold/mint sit under 3:1, so every
+     chart also has a table view. */
+  --chart-1: #3b8be8;
   --chart-2: #e8950f;
-  --chart-3: #3b8be8;
+  --chart-3: #14b88f;
   --chart-4: #e5594c;
   --chart-5: #8b6ee8;
+  --chart-grid: #e6ebf1;
+  --chart-axis: #c9d1db;
   --radius: 0.875rem;
   --sidebar: #ffffff;
   --sidebar-foreground: #0f1722;
@@ -147,11 +153,14 @@ html.light {
   --coral-soft: rgb(242 102 90 / 0.12);
   --sky: #60a5fa;
   --sky-soft: rgb(96 165 250 / 0.12);
-  --chart-1: #2dd4a7;
-  --chart-2: #f5a524;
-  --chart-3: #60a5fa;
-  --chart-4: #f2665a;
+  /* Same hues stepped down into the dark lightness band. */
+  --chart-1: #3b8be8;
+  --chart-2: #c97f08;
+  --chart-3: #14a37f;
+  --chart-4: #e5594c;
   --chart-5: #a78bfa;
+  --chart-grid: rgb(255 255 255 / 0.06);
+  --chart-axis: rgb(255 255 255 / 0.14);
   --radius: 0.875rem;
   --sidebar: #0e131a;
   --sidebar-foreground: #e8edf3;

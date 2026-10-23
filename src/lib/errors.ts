@@ -70,6 +70,10 @@ export const ERROR_KEYS = [
   "future_date",
   "invalid_proof_path",
   "mode_change_blocked",
+  "not_super_admin",
+  "cannot_change_own_role",
+  "forbidden_role_change",
+  "invalid_kind",
   // client / generic database
   "upload_failed",
   "file_too_large",

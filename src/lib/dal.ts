@@ -59,6 +59,16 @@ export async function requireMember() {
   return { ...viewer, membership };
 }
 
+/** Platform owner (super admin); anyone else is sent to the dashboard. */
+export async function requireSuperAdmin() {
+  const viewer = await requireViewer();
+  const profile = viewer.context.profile;
+  if (profile?.platform_role !== "super_admin" || profile.is_deleted) {
+    return go("/dashboard");
+  }
+  return viewer;
+}
+
 /** Active manager of their mess; members are sent to the dashboard. */
 export async function requireManager() {
   const member = await requireMember();

@@ -378,7 +378,11 @@
     "file_too_large": "That photo is too large (max 12 MB).",
     "invalid_file": "Only photos (JPG, PNG, WebP) are allowed.",
     "invalid_input": "Some details aren't right. Check the fields again.",
-    "duplicate": "That already exists."
+    "duplicate": "That already exists.",
+    "not_super_admin": "Only a platform admin can do this.",
+    "cannot_change_own_role": "You can't change your own role.",
+    "forbidden_role_change": "You're not allowed to change this role.",
+    "invalid_kind": "That kind of content isn't recognised."
   },
   "onboarding": {
     "metaTitle": "Get started",
@@ -483,14 +487,22 @@
     "market": "Market",
     "services": "Services",
     "members": "Members",
-    "admin": "Admin",
+    "admin": "Overview",
     "more": "More",
     "menu": "Menu",
     "approvals": "Approvals",
     "expenses": "Bazar & costs",
     "bills": "Bills",
     "closing": "Month end",
-    "messSettings": "Mess settings"
+    "messSettings": "Mess settings",
+    "overview": "Mess overview",
+    "reports": "Reports & backup",
+    "activity": "Activity log",
+    "adminMesses": "All messes",
+    "adminUsers": "Users",
+    "moderation": "Moderation",
+    "feedback": "Feedback",
+    "platformActivity": "Activity log"
   },
   "shell": {
     "yourMess": "Your mess",
@@ -733,7 +745,8 @@
         "bkash": "bKash",
         "nagad": "Nagad",
         "rocket": "Rocket",
-        "cash": "Cash"
+        "cash": "Cash",
+        "bank": "Bank"
       },
       "sendTo": "{method} number:",
       "copyNumber": "Copy number",
@@ -862,7 +875,40 @@
     "mealCost": "Meal cost",
     "bills": "Bills",
     "other": "Other",
-    "closing": "Closing balance"
+    "closing": "Closing balance",
+    "email": "Email",
+    "room": "Room",
+    "seat": "Seat",
+    "role": "Role",
+    "status": "Status",
+    "joined": "Joined",
+    "left": "Left",
+    "balance": "Balance",
+    "month": "Month",
+    "method": "Method",
+    "trxId": "TrxID",
+    "sender": "Sent from",
+    "paidAt": "Paid at",
+    "reviewedAt": "Reviewed at",
+    "note": "Note",
+    "category": "Category",
+    "paidFrom": "Paid from",
+    "paidBy": "Paid by",
+    "receipt": "Receipt",
+    "yes": "Yes",
+    "no": "No",
+    "billType": "Bill type",
+    "total": "Total",
+    "split": "Split",
+    "dueDate": "Due date",
+    "postedAt": "Posted at",
+    "shares": "Member shares",
+    "slot": "Meal",
+    "guests": "Guests",
+    "price": "Price",
+    "charged": "Charged",
+    "ordered": "Ordered",
+    "cancelled": "Cancelled"
   },
   "manage": {
     "menu": {
@@ -1190,6 +1236,436 @@
       "rent": "Monthly rent (৳)",
       "rentHint": "Used when splitting rent by room.",
       "save": "Save"
+    },
+    "overview": {
+      "title": "Mess overview",
+      "subtitle": "{mess} — meals, money and members at a glance.",
+      "queue": {
+        "label": "Waiting for you",
+        "deposits": "{count, plural, one {# deposit request} other {# deposit requests}}",
+        "requests": "{count, plural, one {# join request} other {# join requests}}",
+        "drafts": "{count, plural, one {# draft bill} other {# draft bills}}"
+      },
+      "rate": {
+        "final": "Final rate",
+        "estimate": "Estimate so far",
+        "fixed": "Fixed-price mode (for reference)"
+      },
+      "kpi": {
+        "members": "Active members",
+        "inactive": "{count} paused",
+        "allActive": "Everyone active",
+        "meals": "Meals this month",
+        "mealCost": "Bazar + gas {amount}",
+        "rate": "Meal rate",
+        "collected": "Collected this month",
+        "pendingAmount": "{amount} awaiting approval",
+        "noPending": "No requests waiting",
+        "due": "Total due",
+        "dueMembers": "Owed by {count} members",
+        "noDue": "Nobody owes the mess"
+      },
+      "charts": {
+        "daily": "Meals per day",
+        "dailyBody": "How many meals were eaten each day, guests included.",
+        "money": "Collected vs spent",
+        "moneyBody": "Member deposits against bazar and bill spending, last six months.",
+        "expenses": "Where the money went",
+        "expensesBody": "{total} spent this month",
+        "amount": "Amount",
+        "noExpenses": "No spending this month yet",
+        "noExpensesBody": "Add bazar or other costs and the breakdown shows up here.",
+        "balances": "Member balances",
+        "balancesBody": "Total due {due} · total advance {advance}",
+        "noMembers": "No members yet"
+      },
+      "defaulters": {
+        "title": "Biggest dues",
+        "body": "Members in the minus — a quick call usually sorts it.",
+        "none": "Nobody owes the mess",
+        "noneBody": "Every balance is zero or in advance.",
+        "room": "Room {room}",
+        "noRoom": "No room",
+        "call": "Call {name}",
+        "fullReport": "Full month report"
+      }
+    },
+    "reports": {
+      "title": "Reports & backup",
+      "subtitle": "Each member's month in numbers, and CSV backups of every mess record.",
+      "closedNote": "{month} was closed on {date} — these numbers are final.",
+      "estimateNote": "{month} is still running. Meal cost is an estimate from bazar so far and becomes final when the month closes.",
+      "openNote": "{month} is still running. The numbers become final when the month closes.",
+      "totals": {
+        "meals": "Total meals",
+        "bazar": "Bazar + gas",
+        "rate": "Meal rate",
+        "rateSoFar": "Meal rate (so far)",
+        "fixed": "Fixed prices",
+        "shared": "Shared costs",
+        "bills": "Posted bills",
+        "deposits": "Deposits"
+      },
+      "table": {
+        "title": "{month} — by member",
+        "body": "Brought forward + deposits − meals − bills ± other = balance at month end.",
+        "empty": "Nobody was in the mess this month",
+        "member": "Member",
+        "opening": "Opening",
+        "deposits": "Deposits",
+        "meals": "Meals",
+        "mealCost": "Meal cost",
+        "mealCostEst": "Meal cost (est.)",
+        "bills": "Bills",
+        "other": "Other",
+        "closing": "Closing",
+        "closingEst": "Closing (est.)",
+        "left": "left",
+        "room": "Room {room}",
+        "noRoom": "No room",
+        "total": "Total"
+      },
+      "statementsCsv": "Statements CSV",
+      "downloads": {
+        "title": "Data backup (CSV)",
+        "body": "Opens in Excel or Google Sheets. Download one month or everything since the start.",
+        "note": "These files contain members' phone numbers and money records — keep them safe and don't share them.",
+        "monthAria": "{what} — CSV for {month}",
+        "allAria": "{what} — CSV for all time",
+        "all": "All",
+        "now": "Current",
+        "members": {
+          "title": "Member list",
+          "body": "Name, phone, room, status and current balance"
+        },
+        "ledger": {
+          "title": "Transactions (ledger)",
+          "body": "Every deposit, charge, bill share and adjustment"
+        },
+        "deposits": {
+          "title": "Deposit requests",
+          "body": "TrxIDs, payment method and approval status"
+        },
+        "expenses": {
+          "title": "Bazar & costs",
+          "body": "Date, category, amount and who paid"
+        },
+        "bills": {
+          "title": "Bills",
+          "body": "Every bill with each member's share"
+        },
+        "meals": {
+          "title": "Meal orders",
+          "body": "Who ate which meal on which day, guests included"
+        }
+      }
+    }
+  },
+  "charts": {
+    "view": "View as",
+    "chart": "Chart",
+    "table": "Table",
+    "date": "Date",
+    "total": "Total",
+    "collected": "Collected",
+    "spent": "Spent (bazar + bills)",
+    "month": "Month",
+    "item": "Category",
+    "balance": "Balance",
+    "advance": "Advance",
+    "due": "Due",
+    "member": "Member"
+  },
+  "platformRoles": {
+    "user": "Regular user",
+    "landlord": "Landlord",
+    "service_provider": "Service provider",
+    "super_admin": "Platform admin"
+  },
+  "memberStatus": {
+    "pending": "Pending",
+    "active": "Active",
+    "inactive": "Paused",
+    "rejected": "Declined",
+    "left": "Left"
+  },
+  "moderationStatus": {
+    "pending": "pending",
+    "approved": "published",
+    "rejected": "rejected",
+    "archived": "archived"
+  },
+  "listingTypes": {
+    "seat": "Seat",
+    "room": "Room",
+    "flat": "Flat",
+    "sublet": "Sublet"
+  },
+  "serviceCategories": {
+    "bua_cook": "Bua / cook",
+    "tiffin": "Tiffin",
+    "electrician": "Electrician",
+    "plumber": "Plumber",
+    "gas_cylinder": "Gas cylinder",
+    "internet": "Internet",
+    "laundry": "Laundry",
+    "tutor": "Tutor",
+    "moving_van": "Moving van",
+    "doctor": "Doctor",
+    "other": "Other"
+  },
+  "eventTypes": {
+    "iftar": "Iftar",
+    "eid": "Eid",
+    "puja": "Puja",
+    "meetup": "Meetup",
+    "sports": "Sports",
+    "study": "Study",
+    "other": "Other"
+  },
+  "jobTypes": {
+    "tuition": "Tuition",
+    "part_time": "Part-time",
+    "freelance": "Freelance",
+    "internship": "Internship"
+  },
+  "marketCategories": {
+    "furniture": "Furniture",
+    "bed": "Bed / mattress",
+    "fan": "Fan",
+    "electronics": "Electronics",
+    "books": "Books",
+    "kitchen": "Kitchen",
+    "clothing": "Clothing",
+    "other": "Other"
+  },
+  "itemConditions": {
+    "new": "New",
+    "like_new": "Like new",
+    "good": "Good",
+    "fair": "Fair"
+  },
+  "activity": {
+    "title": "Activity log",
+    "subtitle": "Who changed what in the mess, and when — money, members, costs and settings. Nothing here can be deleted.",
+    "platformTitle": "Platform activity log",
+    "platformSubtitle": "Money, membership and moderation changes across every mess.",
+    "onlyMess": "Only {name}",
+    "clearMess": "Show all messes",
+    "system": "System",
+    "someone": "Someone",
+    "empty": "No activity yet",
+    "emptyBody": "Changes to money, members or costs will be recorded here.",
+    "loadMore": "Load older",
+    "end": "Nothing older",
+    "details": "Details",
+    "filters": {
+      "label": "Filter activity",
+      "all": "All",
+      "money": "Money",
+      "members": "Members",
+      "spending": "Costs & bills",
+      "settings": "Settings",
+      "moderation": "Moderation"
+    },
+    "events": {
+      "ledger": "{actor} recorded {type} for {subject}: {amount}",
+      "depositRequested": "{subject} asked to add {amount} by {method}",
+      "depositApproved": "{actor} approved {subject}'s deposit of {amount}",
+      "depositRejected": "{actor} declined {subject}'s deposit of {amount}",
+      "depositUpdated": "{actor} updated {subject}'s deposit request",
+      "memberRequested": "{subject} asked to join the mess",
+      "memberJoined": "{subject} joined the mess",
+      "memberDeleted": "{subject}'s membership record was deleted",
+      "memberApproved": "{actor} approved {subject}'s join request",
+      "memberRejected": "{actor} declined {subject}'s join request",
+      "memberPaused": "{actor} paused {subject}",
+      "memberResumed": "{actor} made {subject} active again",
+      "memberLeft": "{subject} left the mess",
+      "memberRemoved": "{actor} removed {subject} from the mess",
+      "memberPromoted": "{actor} made {subject} a manager",
+      "memberDemoted": "{actor} removed {subject} as manager",
+      "memberRoom": "{actor} changed {subject}'s room",
+      "memberUpdated": "{actor} updated {subject}'s membership",
+      "expenseAdded": "{actor} added a {category} cost of {amount}",
+      "expenseUpdated": "{actor} edited a {category} cost ({amount})",
+      "expenseDeleted": "{actor} deleted a {category} cost of {amount}",
+      "billCreated": "{actor} drafted a {type} bill of {amount}",
+      "billPosted": "{actor} posted the {type} bill ({amount})",
+      "billVoided": "{actor} voided the {type} bill ({amount})",
+      "billUpdated": "{actor} edited the {type} bill ({amount})",
+      "billDeleted": "{actor} deleted a draft {type} bill ({amount})",
+      "monthClosed": "{actor} closed {month} · meal rate {rate}",
+      "settingsCreated": "Mess settings were created",
+      "settingsUpdated": "{actor} changed the mess settings",
+      "messCreated": "{actor} created the mess",
+      "messActivated": "{actor} switched the mess back on",
+      "messDeactivated": "{actor} switched the mess off",
+      "messInvite": "{actor} made a new invite code",
+      "inviteOn": "{actor} turned the invite link on",
+      "inviteOff": "{actor} turned the invite link off",
+      "messUpdated": "{actor} updated the mess details",
+      "listingStatus": "{actor} marked the listing “{title}” as {status}",
+      "other": "{actor} made a change"
+    }
+  },
+  "admin": {
+    "search": "Search",
+    "range": "{from}–{to} of {total}",
+    "prev": "Previous page",
+    "next": "Next page",
+    "overview": {
+      "title": "Platform overview",
+      "subtitle": "Every mess, user and community post at a glance.",
+      "kpi": {
+        "users": "Users",
+        "signups": "{count} new in the last 30 days",
+        "messes": "Active messes",
+        "inactiveMesses": "{count} switched off",
+        "members": "{count} active members",
+        "moderation": "Waiting for moderation",
+        "waiting": "Review and approve",
+        "clear": "All caught up",
+        "feedback": "New feedback",
+        "unread": "Not read yet"
+      },
+      "charts": {
+        "signups": "New users",
+        "signupsBody": "{count} people joined in the last 30 days",
+        "newUsers": "New users",
+        "areas": "Messes by area",
+        "areasBody": "Areas with the most active messes",
+        "messCount": "Messes",
+        "noArea": "No area set",
+        "noMesses": "No messes yet"
+      },
+      "community": {
+        "title": "Community",
+        "listings": "Published listings",
+        "market": "Items for sale",
+        "jobs": "Open tuitions & jobs",
+        "events": "Upcoming events"
+      },
+      "links": {
+        "moderation": "Moderation",
+        "moderationBody": "Approve listings, services, recipes and events",
+        "activity": "Activity log",
+        "activityBody": "Money and membership changes in every mess"
+      }
+    },
+    "messes": {
+      "title": "All messes",
+      "subtitle": "{count} messes on the platform",
+      "searchPlaceholder": "Mess name, address or invite code",
+      "noMatch": "No mess matches “{q}”",
+      "empty": "No messes yet",
+      "inactive": "Switched off",
+      "inviteOff": "Invite off",
+      "noAddress": "No address",
+      "created": "Created {date}",
+      "lastActive": "last activity {date}",
+      "manager": "Manager",
+      "call": "Call {name}",
+      "noManager": "No active manager",
+      "members": "Members",
+      "pending": "+{count} pending",
+      "activity": "Log",
+      "activate": "Switch on",
+      "deactivate": "Switch off",
+      "activated": "{name} is back on",
+      "deactivated": "{name} was switched off",
+      "deactivateTitle": "Switch off {name}?",
+      "deactivateBody": "Nobody new can join and the invite link stops working. Past records stay. The manager is notified with your reason.",
+      "reasonPlaceholder": "Reason (the manager will see it)",
+      "reason": "Reason",
+      "cancel": "Keep it on"
+    },
+    "users": {
+      "title": "Users",
+      "subtitle": "{count} people",
+      "searchPlaceholder": "Name, email or phone",
+      "roleFilter": "Filter by role",
+      "allRoles": "Everyone",
+      "noMatch": "Nobody matches “{q}”",
+      "empty": "No users",
+      "noName": "No name",
+      "you": "you",
+      "deleted": "Account deleted",
+      "mess": "Mess",
+      "requested": "requested",
+      "noMess": "Not in a mess",
+      "joined": "Joined",
+      "roleFor": "Role for {name}",
+      "roleChanged": "{name}: role changed to {role}",
+      "grantAdminTitle": "Make {name} a platform admin?",
+      "grantAdminBody": "They will see and change every mess, user, feedback message and the activity log. Only give this to someone you trust.",
+      "revokeAdminTitle": "Remove {name}'s admin access?",
+      "revokeAdminBody": "They will no longer see the platform admin pages.",
+      "cancel": "Cancel",
+      "confirm": "Yes, change it"
+    },
+    "moderation": {
+      "title": "Moderation",
+      "subtitle": "Check community posts before they go live, and take down anything harmful.",
+      "kinds": "Content type",
+      "tabs": {
+        "listing": "Listings",
+        "service": "Services",
+        "recipe": "Recipes",
+        "event": "Events",
+        "job": "Tuitions & jobs",
+        "market": "Market"
+      },
+      "preModerated": "These are only visible to everyone after you approve them.",
+      "postModerated": "These go live immediately; remove anything fake or harmful.",
+      "empty": "Nothing to review",
+      "emptyBody": "New posts will show up here.",
+      "postedBy": "{name} · {date}",
+      "unknown": "Unknown",
+      "rent": "Rent {amount}",
+      "minutes": "{count} min",
+      "cost": "About {amount}",
+      "verify": "Mark as verified",
+      "approve": "Approve",
+      "reject": "Reject",
+      "remove": "Remove",
+      "rejectTitle": "Reject “{title}”?",
+      "removeTitle": "Remove “{title}”?",
+      "reasonBody": "If you add a reason, the poster sees it in their notification.",
+      "reasonPlaceholder": "e.g. Wrong phone number, or looks fake",
+      "reason": "Reason",
+      "cancel": "Cancel",
+      "done": {
+        "approved": "“{title}” is published",
+        "rejected": "“{title}” was rejected",
+        "removed": "“{title}” was removed"
+      }
+    },
+    "feedback": {
+      "title": "Feedback",
+      "subtitle": "Opinions, bug reports and contact messages from users.",
+      "filter": "Filter by status",
+      "statuses": {
+        "new": "New",
+        "reviewing": "Reviewing",
+        "resolved": "Resolved"
+      },
+      "types": {
+        "feedback": "Feedback",
+        "bug": "Bug",
+        "contact": "Contact",
+        "report": "Report"
+      },
+      "empty": "Nothing here",
+      "emptyBody": "New feedback will show up here.",
+      "noSubject": "No subject",
+      "from": "From {name}",
+      "anonymous": "No name",
+      "status": "Status",
+      "note": "Admin note",
+      "notePlaceholder": "Note for yourself (users don't see it)",
+      "save": "Save",
+      "saved": "Saved"
     }
   }
 }

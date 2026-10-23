@@ -20,6 +20,11 @@ export function formatNumber(value: number | string | null | undefined, locale: 
   return new Intl.NumberFormat(intlLocale(locale), { maximumFractionDigits: maxFraction }).format(Number(value ?? 0));
 }
 
+/** Short axis labels: 1.2K / ১.২ হা */
+export function formatCompact(value: number | string | null | undefined, locale: AppLocale | string) {
+  return new Intl.NumberFormat(intlLocale(locale), { notation: "compact", maximumFractionDigits: 1 }).format(Number(value ?? 0));
+}
+
 export function formatDate(
   value: string | Date,
   locale: AppLocale | string,

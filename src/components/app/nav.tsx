@@ -5,9 +5,14 @@ import {
   Building2,
   CalendarCheck,
   ChefHat,
+  FileBarChart,
+  Flag,
   HeartPulse,
+  History,
   Home,
+  LayoutDashboard,
   type LucideIcon,
+  MessageSquareText,
   MoreHorizontal,
   Receipt,
   Settings2,
@@ -32,8 +37,10 @@ import { cn } from "@/lib/utils";
 
 type NavKey =
   | "dashboard" | "meals" | "wallet" | "billing" | "mess" | "care" | "housing" | "market" | "services"
-  | "members" | "menu" | "approvals" | "expenses" | "bills" | "closing" | "messSettings" | "admin";
-type NavItem = { key: NavKey; href: string; icon: LucideIcon; ready: boolean; mobile?: boolean };
+  | "overview" | "members" | "menu" | "approvals" | "expenses" | "bills" | "closing" | "reports" | "activity" | "messSettings"
+  | "admin" | "adminMesses" | "adminUsers" | "moderation" | "feedback" | "platformActivity";
+// `exact`: only this path counts as active (for section home pages like /manage)
+type NavItem = { key: NavKey; href: string; icon: LucideIcon; ready: boolean; mobile?: boolean; exact?: boolean };
 
 // `ready` flips on as each phase ships its pages, so nobody hits a dead link.
 const MAIN: NavItem[] = [
@@ -48,15 +55,25 @@ const MAIN: NavItem[] = [
   { key: "services", href: "/services", icon: Wrench, ready: false },
 ];
 const MANAGER: NavItem[] = [
+  { key: "overview", href: "/manage", icon: LayoutDashboard, ready: true, exact: true },
   { key: "approvals", href: "/manage/approvals", icon: BadgeCheck, ready: true },
   { key: "menu", href: "/manage/menu", icon: ChefHat, ready: true },
   { key: "expenses", href: "/manage/expenses", icon: ShoppingCart, ready: true },
   { key: "bills", href: "/manage/bills", icon: Receipt, ready: true },
   { key: "closing", href: "/manage/closing", icon: CalendarCheck, ready: true },
   { key: "members", href: "/manage/members", icon: UserCog, ready: true },
+  { key: "reports", href: "/manage/reports", icon: FileBarChart, ready: true },
+  { key: "activity", href: "/manage/activity", icon: History, ready: true },
   { key: "messSettings", href: "/manage/settings", icon: Settings2, ready: true },
 ];
-const ADMIN: NavItem[] = [{ key: "admin", href: "/admin", icon: ShieldCheck, ready: false }];
+const ADMIN: NavItem[] = [
+  { key: "admin", href: "/admin", icon: ShieldCheck, ready: true, exact: true },
+  { key: "adminMesses", href: "/admin/messes", icon: Building2, ready: true },
+  { key: "adminUsers", href: "/admin/users", icon: Users, ready: true },
+  { key: "moderation", href: "/admin/moderation", icon: Flag, ready: true },
+  { key: "feedback", href: "/admin/feedback", icon: MessageSquareText, ready: true },
+  { key: "platformActivity", href: "/admin/activity", icon: History, ready: true },
+];
 
 export type NavAccess = { isManager: boolean; isAdmin: boolean };
 
@@ -74,7 +91,7 @@ function sections({ isManager, isAdmin }: NavAccess) {
 
 function useIsActive() {
   const pathname = usePathname();
-  return (href: string) => pathname === href || pathname.startsWith(`${href}/`);
+  return ({ href, exact }: Pick<NavItem, "href" | "exact">) => pathname === href || (!exact && pathname.startsWith(`${href}/`));
 }
 
 export function SidebarNav(access: NavAccess) {
@@ -87,8 +104,8 @@ export function SidebarNav(access: NavAccess) {
           <p className="px-3 pb-1 text-[0.7rem] font-semibold uppercase tracking-wider text-muted-foreground/80">
             {t(`sections.${section.id}`)}
           </p>
-          {section.items.map(({ key, href, icon: Icon }) => {
-            const active = isActive(href);
+          {section.items.map(({ key, href, icon: Icon, exact }) => {
+            const active = isActive({ href, exact });
             return (
               <Link
                 key={key}
@@ -125,8 +142,8 @@ export function MobileNav(access: NavAccess) {
         aria-label={t("label")}
       >
         <div className="mx-auto flex max-w-md items-stretch justify-around px-2">
-          {bar.map(({ key, href, icon: Icon }) => {
-            const active = isActive(href);
+          {bar.map(({ key, href, icon: Icon, exact }) => {
+            const active = isActive({ href, exact });
             return (
               <Link
                 key={key}
@@ -161,13 +178,13 @@ export function MobileNav(access: NavAccess) {
             </SheetTitle>
           </SheetHeader>
           <div className="grid grid-cols-3 gap-2 px-4" onClick={() => setOpen(false)}>
-            {all.map(({ key, href, icon: Icon }) => (
+            {all.map(({ key, href, icon: Icon, exact }) => (
               <Link
                 key={key}
                 href={href}
                 className={cn(
                   "flex flex-col items-center gap-1.5 rounded-2xl border bg-card px-2 py-4 text-sm",
-                  isActive(href) && "border-primary/50 text-primary",
+                  isActive({ href, exact }) && "border-primary/50 text-primary",
                 )}
               >
                 <Icon className="size-5" aria-hidden="true" />

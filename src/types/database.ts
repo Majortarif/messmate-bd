@@ -3167,6 +3167,31 @@ export type Database = {
         }
         Returns: undefined
       }
+      admin_list_messes: {
+        Args: {
+          p_search?: string
+          p_limit?: number
+          p_offset?: number
+        }
+        Returns: Json
+      }
+      admin_list_users: {
+        Args: {
+          p_search?: string
+          p_role?: Database["public"]["Enums"]["platform_role"]
+          p_limit?: number
+          p_offset?: number
+        }
+        Returns: Json
+      }
+      admin_set_mess_active: {
+        Args: {
+          p_mess_id: string
+          p_active: boolean
+          p_reason?: string
+        }
+        Returns: undefined
+      }
       cancel_join_request: {
         Args: never
         Returns: undefined
@@ -3244,6 +3269,15 @@ export type Database = {
         }
         Returns: number
       }
+      get_activity_log: {
+        Args: {
+          p_mess_id?: string
+          p_category?: string
+          p_before?: number
+          p_limit?: number
+        }
+        Returns: Json
+      }
       get_manager_dashboard: {
         Args: {
           p_month?: string
@@ -3283,6 +3317,12 @@ export type Database = {
           member_count: number
           invite_enabled: boolean
         }[]
+      }
+      get_mess_report: {
+        Args: {
+          p_month?: string
+        }
+        Returns: Json
       }
       get_my_context: {
         Args: never
